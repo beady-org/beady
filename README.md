@@ -11,3 +11,10 @@ Key features of Beady include:
 - **Developer-Friendly**: A clean and intuitive API simplifies business logic development, reducing **time-to-market** for new applications.  
 
 By adopting Beady, businesses can streamline their **software development process** while maintaining flexibility and agility. Whether building **ERP systems, workflow automation tools, or analytics dashboards**, Beady provides the **foundation for rapid and efficient application development**.
+
+## Installation
+```sh
+wget https://raw.githubusercontent.com/beady-org/beady/refs/heads/main/ubuntu-install.sh
+sudo chmod +x ubuntu-install.sh
+./ubuntu-install
+```
