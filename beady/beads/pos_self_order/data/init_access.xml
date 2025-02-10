@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<beady>
+    <data noupdate="1">
+        <function model="restaurant.table" name="_update_identifier" />
+    </data>
+</beady>

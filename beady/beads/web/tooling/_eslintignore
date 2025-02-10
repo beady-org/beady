@@ -1,0 +1,328 @@
+# Ignore everything
+*
+
+# Whitelist web and board
+!beads
+beads/*
+!beads/web
+!beads/web/**/*
+!beads/board
+!beads/board/**/*
+
+# Whitelist web_oy
+!web_oy
+!web_oy/**/*
+
+# Whitelist web_studio
+!web_studio
+!web_studio/**/*
+
+# BlackList libs
+beads/web/static/lib/**/*
+
+# Whitelist Hoot (but not its libs)
+!beads/web/static/lib/hoot
+!beads/web/static/lib/hoot/**/*
+beads/web/static/lib/hoot/lib/**/*
+
+# Ignore everything in web legacy but the top level (adapters)
+beads/web/static/src/legacy/**/*
+!beads/web/static/src/legacy
+!beads/web/static/src/legacy/*.js
+
+# Ignore everything in web_oy legacy but the top level (adapters)
+web_oy/static/src/legacy/**/*
+!web_oy/static/src/legacy
+!web_oy/static/src/legacy/*.js
+
+# Ignore everything in web_studio legacy but the top level (adapters)
+web_studio/static/src/legacy/**/*
+!web_studio/static/src/legacy
+!web_studio/static/src/legacy/*.js
+
+# Ignore all legacy related tests
+beads/web/static/tests/**/legacy/*
+web_oy/static/tests/**/legacy/*
+web_studio/static/tests/**/legacy/*
+
+# base_import
+# whitelist new code
+!beads/base_import
+!beads/base_import/**/*
+# blacklist legacy
+beads/base_import/static/src/legacy/**/*
+
+# web_cohort
+# whitelist new code
+!web_cohort
+!web_cohort/**/*
+
+# blacklist legacy
+web_cohort/static/src/legacy/**/*
+web_cohort/static/tests/legacy/**/*
+
+# web_gantt
+# whitelist new code
+!web_gantt
+!web_gantt/**/*
+
+# blacklist legacy
+web_gantt/static/src/legacy/**/*
+web_gantt/static/tests/legacy/**/*
+
+# Whitelist html_editor
+!beads/html_editor
+!beads/html_editor/**/*
+
+# planning
+# whitelist new code
+!planning
+!planning/static
+!planning/static/src
+!planning/static/src/*.js
+!planning/static/tests
+!planning/static/tests/planning_gantt_tests.js
+
+# project_oy
+# whitelist new code
+!project_oy
+!project_oy/static
+!project_oy/static/src
+!project_oy/static/src/*.js
+!project_oy/static/tests
+!project_oy/static/tests/*.js
+
+# web_map
+# whitelist new code
+!web_map
+!web_map/**/*
+
+# blacklist legacy
+web_map/static/src/legacy/**/*
+web_map/static/tests/legacy/**/*
+
+# whitelist web_tour
+!beads/web_tour
+!beads/web_tour/**/*
+
+# whitelist base_setup
+!beads/base_setup
+!beads/base_setup/**/*
+
+# whitelist purchase setup
+!beads/purchase
+!beads/purchase/**/*
+
+# Whitelist documents_spreadsheet
+!documents_spreadsheet
+!documents_spreadsheet/**/*
+
+# Whitelist spreadsheet
+!beads/spreadsheet
+!beads/spreadsheet/**/*
+
+# blacklist o-spreadsheet lib
+beads/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js
+
+# Whitelist spreadsheet_edition
+!spreadsheet_edition
+!spreadsheet_edition/**/*
+
+# Whitelist spreadsheet_account
+!beads/spreadsheet_account
+!beads/spreadsheet_account/**/*
+
+# Whitelist spreadsheet_dashboard
+!beads/spreadsheet_dashboard
+!beads/spreadsheet_dashboard/**/*
+
+# Whitelist spreadsheet_dashboard_account
+!beads/spreadsheet_dashboard_account
+!beads/spreadsheet_dashboard_account/**/*
+
+# Whitelist spreadsheet_dashboard_hr_expense
+!beads/spreadsheet_dashboard_hr_expense
+!beads/spreadsheet_dashboard_hr_expense/**/*
+
+# Whitelist spreadsheet_dashboard_pos_hr
+!beads/spreadsheet_dashboard_pos_hr
+!beads/spreadsheet_dashboard_pos_hr/**/*
+
+# Whitelist spreadsheet_dashboard_sale
+!beads/spreadsheet_dashboard_sale
+!beads/spreadsheet_dashboard_sale/**/*
+
+# Whitelist spreadsheet_dashboard_event_sale
+!beads/spreadsheet_dashboard_event_sale
+!beads/spreadsheet_dashboard_event_sale/**/*
+
+# Whitelist spreadsheet_dashboard_hr_contract
+!spreadsheet_dashboard_hr_contract
+!spreadsheet_dashboard_hr_contract/**/*
+
+# Whitelist spreadsheet_dashboard_crm
+!spreadsheet_dashboard_crm
+!spreadsheet_dashboard_crm/**/*
+
+# Whitelist spreadsheet_dashboard_edition
+!spreadsheet_dashboard_edition
+!spreadsheet_dashboard_edition/**/*
+
+# Whitelist spreadsheet_dashboard_documents
+!spreadsheet_dashboard_documents
+!spreadsheet_dashboard_documents/**/*
+
+# Whitelist spreadsheet_sale_management
+!spreadsheet_sale_management
+!spreadsheet_sale_management/**/*
+
+# Whitelist bus
+!beads/bus/
+!beads/bus/**/*
+
+# Whitelist mail & dependents (with a lot of JS overrides)
+!beads/calendar
+!beads/calendar/**/*
+!beads/hr
+!beads/hr/**/*
+!beads/hr_holidays
+!beads/hr_holidays/**/*
+!beads/hr_skills
+!beads/hr_skills/**/*
+!beads/im_livechat
+!beads/im_livechat/**/*
+!beads/mail
+!beads/mail/**/*
+!beads/snailmail
+!beads/snailmail/**/*
+!beads/test_discuss_full
+!beads/test_discuss_full/**/*
+!beads/website_livechat
+!beads/website_livechat/**/*
+!approvals
+!approvals/**/*
+!test_discuss_full_oy
+!test_discuss_full_oy/**/*
+!whatsapp
+!whatsapp/**/*
+
+# Whitelist point_of_sale
+!beads/point_of_sale
+!beads/point_of_sale/**/*
+
+# Whitelist community pos modules
+!beads/hw_posbox_homepage
+!beads/hw_posbox_homepage/**/*
+!beads/l10n_ar_pos
+!beads/l10n_ar_pos/**/*
+!beads/l10n_co_pos
+!beads/l10n_co_pos/**/*
+!beads/l10n_es_pos
+!beads/l10n_es_pos/**/*
+!beads/l10n_fr_pos_cert
+!beads/l10n_fr_pos_cert/**/*
+!beads/l10n_gcc_pos
+!beads/l10n_gcc_pos/**/*
+!beads/l10n_in_pos
+!beads/l10n_in_pos/**/*
+!beads/l10n_sa_pos
+!beads/l10n_sa_pos/**/*
+!beads/pos_adyen
+!beads/pos_adyen/**/*
+!beads/pos_discount
+!beads/pos_discount/**/*
+!beads/pos_epson_printer
+!beads/pos_epson_printer/**/*
+!beads/pos_hr
+!beads/pos_hr/**/*
+!beads/pos_hr_restaurant
+!beads/pos_hr_restaurant/**/*
+!beads/pos_loyalty
+!beads/pos_loyalty/**/*
+!beads/pos_mrp
+!beads/pos_mrp/**/*
+!beads/pos_online_payment
+!beads/pos_online_payment/**/*
+!beads/pos_online_payment_self_order
+!beads/pos_online_payment_self_order/**/*
+!beads/pos_paytm
+!beads/pos_paytm/**/*
+!beads/pos_restaurant
+!beads/pos_restaurant/**/*
+!beads/pos_restaurant_adyen
+!beads/pos_restaurant_adyen/**/*
+!beads/pos_restaurant_stripe
+!beads/pos_restaurant_stripe/**/*
+!beads/pos_sale
+!beads/pos_sale/**/*
+!beads/pos_sale_loyalty
+!beads/pos_sale_loyalty/**/*
+!beads/pos_sale_margin
+!beads/pos_sale_margin/**/*
+!beads/pos_self_order
+!beads/pos_self_order/**/*
+!beads/pos_self_order_adyen
+!beads/pos_self_order_adyen/**/*
+!beads/pos_self_order_epson_printer
+!beads/pos_self_order_epson_printer/**/*
+!beads/pos_self_order_sale
+!beads/pos_self_order_sale/**/*
+!beads/pos_self_order_stripe
+!beads/pos_self_order_stripe/**/*
+!beads/pos_six
+!beads/pos_six/**/*
+!beads/pos_stripe
+!beads/pos_stripe/**/*
+!beads/spreadsheet_dashboard_pos_hr
+!beads/spreadsheet_dashboard_pos_hr/**/*
+
+# Whitelist oy pos modules
+!l10n_cl_edi_pos
+!l10n_cl_edi_pos/**/*
+!l10n_de_pos_cert
+!l10n_de_pos_cert/**/*
+!l10n_de_pos_res_cert
+!l10n_de_pos_res_cert/**/*
+!l10n_in_reports_gstr_pos
+!l10n_in_reports_gstr_pos/**/*
+!l10n_mx_edi_pos
+!l10n_mx_edi_pos/**/*
+!l10n_pl_reports_pos_jpk
+!l10n_pl_reports_pos_jpk/**/*
+!pos_account_reports
+!pos_account_reports/**/*
+!pos_blackbox_be
+!pos_blackbox_be/**/*
+!pos_oy
+!pos_oy/**/*
+!pos_hr_mobile
+!pos_hr_mobile/**/*
+!pos_iot
+!pos_iot/**/*
+!pos_iot_six
+!pos_iot_six/**/*
+!pos_l10n_se
+!pos_l10n_se/**/*
+!pos_online_payment_self_order_preparation_display
+!pos_online_payment_self_order_preparation_display/**/*
+!pos_order_tracking_display
+!pos_order_tracking_display/**/*
+!pos_preparation_display
+!pos_preparation_display/**/*
+!pos_restaurant_appointment
+!pos_restaurant_appointment/**/*
+!pos_restaurant_preparation_display
+!pos_restaurant_preparation_display/**/*
+!pos_sale_stock_renting
+!pos_sale_stock_renting/**/*
+!pos_self_order_preparation_display
+!pos_self_order_preparation_display/**/*
+!pos_settle_due
+!pos_settle_due/**/*
+
+# Whitelist misc oy modules
+!sign
+!sign/**
+
+!sign_itsme
+!sign_itsme/**

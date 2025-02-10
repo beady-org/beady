@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beady>
+    <record id="base.main_company" model="res.company">
+        <field name="social_twitter">https://twitter.com/Beady</field>
+        <field name="social_facebook">https://www.facebook.com/Beady</field>
+        <field name="social_linkedin">https://www.linkedin.com/company/beady</field>
+        <field name="social_youtube">https://www.youtube.com/user/Beadyonline</field>
+        <field name="social_github">https://github.com/beady</field>
+        <field name="social_instagram">https://www.instagram.com/explore/tags/beady/</field>
+        <field name="social_tiktok">https://www.tiktok.com/@beady</field>
+    </record>
+</beady>

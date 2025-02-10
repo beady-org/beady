@@ -1,0 +1,5 @@
+/var/log/beady/*.log {
+    copytruncate
+    missingok
+    notifempty
+}
