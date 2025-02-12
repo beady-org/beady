@@ -511,7 +511,7 @@
   },
   "pivots": {
     "1": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "eefac62b-900a-4197-95e9-9a4cdbb832d6": {
           "chain": "date",
@@ -564,7 +564,7 @@
       "rows": [{ "fieldName": "categ_id" }]
     },
     "2": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "eefac62b-900a-4197-95e9-9a4cdbb832d6": {
           "chain": "date",
@@ -608,7 +608,7 @@
       "rows": [{ "fieldName": "is_abandoned_cart" }]
     },
     "3": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "eefac62b-900a-4197-95e9-9a4cdbb832d6": {
           "chain": "date",
@@ -652,7 +652,7 @@
       "rows": [{ "fieldName": "is_abandoned_cart" }]
     },
     "4": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "eefac62b-900a-4197-95e9-9a4cdbb832d6": {
           "chain": "date",
@@ -703,7 +703,7 @@
       "rows": [{ "fieldName": "product_id" }]
     },
     "5": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "eefac62b-900a-4197-95e9-9a4cdbb832d6": {
           "chain": "date",
@@ -747,7 +747,7 @@
       "rows": []
     },
     "6": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "eefac62b-900a-4197-95e9-9a4cdbb832d6": {
           "chain": "date",
@@ -791,7 +791,7 @@
       "rows": []
     },
     "7": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "eefac62b-900a-4197-95e9-9a4cdbb832d6": {
           "chain": "date",
@@ -835,7 +835,7 @@
       "rows": []
     },
     "8": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "eefac62b-900a-4197-95e9-9a4cdbb832d6": {
           "chain": "date",

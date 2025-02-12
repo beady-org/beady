@@ -17,7 +17,7 @@ function assertListsExists(listId, getters) {
     }
 }
 
-const ODOO_LIST = {
+const BEADY_LIST = {
     description: _t("Get the value from a list."),
     args: [
         arg("list_id (string)", _t("ID of the list.")),
@@ -35,7 +35,7 @@ const ODOO_LIST = {
     returns: ["NUMBER", "STRING"],
 };
 
-const ODOO_LIST_HEADER = {
+const BEADY_LIST_HEADER = {
     description: _t("Get the header of a list."),
     args: [
         arg("list_id (string)", _t("ID of the list.")),
@@ -51,5 +51,5 @@ const ODOO_LIST_HEADER = {
     returns: ["NUMBER", "STRING"],
 };
 
-functionRegistry.add("ODOO.LIST", ODOO_LIST);
-functionRegistry.add("ODOO.LIST.HEADER", ODOO_LIST_HEADER);
+functionRegistry.add("BEADY.LIST", BEADY_LIST);
+functionRegistry.add("BEADY.LIST.HEADER", BEADY_LIST_HEADER);

@@ -15,7 +15,7 @@ const { getFunctionsFromTokens } = helpers;
  * @returns {number}
  */
 export function getNumberOfAccountFormulas(tokens) {
-    return getFunctionsFromTokens(tokens, ["ODOO.BALANCE", "ODOO.CREDIT", "ODOO.DEBIT"]).length;
+    return getFunctionsFromTokens(tokens, ["BEADY.BALANCE", "BEADY.CREDIT", "BEADY.DEBIT"]).length;
 }
 
 /**
@@ -25,5 +25,5 @@ export function getNumberOfAccountFormulas(tokens) {
  * @returns {BeadyFunctionDescription | undefined}
  */
 export function getFirstAccountFunction(tokens) {
-    return getFunctionsFromTokens(tokens, ["ODOO.BALANCE", "ODOO.CREDIT", "ODOO.DEBIT"])[0];
+    return getFunctionsFromTokens(tokens, ["BEADY.BALANCE", "BEADY.CREDIT", "BEADY.DEBIT"])[0];
 }

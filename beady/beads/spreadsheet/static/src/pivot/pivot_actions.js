@@ -56,7 +56,7 @@ export const SEE_RECORDS_PIVOT_VISIBLE = (position, getters) => {
         cell &&
         cell.isFormula &&
         getNumberOfPivotFunctions(cell.compiledFormula.tokens) === 1 &&
-        getters.getPivotCoreDefinition(pivotId).type === "ODOO" &&
+        getters.getPivotCoreDefinition(pivotId).type === "BEADY" &&
         getters.getPivot(pivotId).getPivotCellDomain(pivotCell.domain)
     );
 };

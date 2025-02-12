@@ -68,7 +68,7 @@ $spacers: (
 // CSS rule (the <body> background color CSS rule) which uses `$body-bg`.
 // TODO lots of variables are still using $body-bg directly, they should use
 // var(--body-bg) instead, as the new bootstrap version intended.
-// grep: BOXED_BODY_BG_ODOO
+// grep: BOXED_BODY_BG_BEADY
 $body-bg: o-color('o-cc1-bg') !default;
 $body-color: o-color('o-cc1-text') or color-contrast($body-bg) !default;
 

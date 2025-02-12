@@ -5,7 +5,7 @@ import * as spreadsheet from "@beady/o-spreadsheet";
 const { arg, toString, toJsDate, toNumber } = spreadsheet.helpers;
 const { functionRegistry } = spreadsheet.registries;
 
-functionRegistry.add("ODOO.CURRENCY.RATE", {
+functionRegistry.add("BEADY.CURRENCY.RATE", {
     description: _t(
         "This function takes in two currency codes as arguments, and returns the exchange rate from the first currency to the second as float."
     ),

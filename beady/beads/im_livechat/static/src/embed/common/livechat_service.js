@@ -28,7 +28,7 @@ export const SESSION_STATE = Object.freeze({
     PERSISTED: "PERSISTED",
 });
 
-export const ODOO_VERSION_KEY = `${location.origin.replace(
+export const BEADY_VERSION_KEY = `${location.origin.replace(
     /:\/{0,2}/g,
     "_"
 )}_im_livechat.beady_version`;

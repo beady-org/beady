@@ -336,7 +336,7 @@
   },
   "pivots": {
     "4": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {},
       "context": {},
       "domain": [["is_published", "=", true]],
@@ -354,7 +354,7 @@
       "rows": []
     },
     "5": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "46b74887-ff98-4c97-9629-4a5a14084321": {
           "chain": "create_date",
@@ -373,7 +373,7 @@
       "rows": []
     },
     "6": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "46b74887-ff98-4c97-9629-4a5a14084321": {
           "chain": "create_date",
@@ -393,7 +393,7 @@
       "rows": []
     },
     "7": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "46b74887-ff98-4c97-9629-4a5a14084321": {
           "chain": "create_date",
@@ -413,7 +413,7 @@
       "rows": []
     },
     "9": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {},
       "context": {},
       "domain": [
@@ -431,7 +431,7 @@
       "rows": []
     },
     "10": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "46b74887-ff98-4c97-9629-4a5a14084321": {
           "chain": "date",
@@ -458,7 +458,7 @@
       "rows": []
     },
     "11": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "46b74887-ff98-4c97-9629-4a5a14084321": {
           "chain": "date",

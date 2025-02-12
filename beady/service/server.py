@@ -166,10 +166,10 @@ class ThreadedWSGIServerReloadable(LoggingBaseWSGIServerMixIn, werkzeug.serving.
     socket open when a reload happens.
     """
     def __init__(self, host, port, app):
-        # The ODOO_MAX_HTTP_THREADS environment variable allows to limit the amount of concurrent
+        # The BEADY_MAX_HTTP_THREADS environment variable allows to limit the amount of concurrent
         # socket connections accepted by a threaded server, implicitly limiting the amount of
         # concurrent threads running for http requests handling.
-        self.max_http_threads = os.environ.get("ODOO_MAX_HTTP_THREADS")
+        self.max_http_threads = os.environ.get("BEADY_MAX_HTTP_THREADS")
         if self.max_http_threads:
             try:
                 self.max_http_threads = int(self.max_http_threads)
@@ -1122,12 +1122,12 @@ class WorkerHTTP(Worker):
     def __init__(self, multi):
         super(WorkerHTTP, self).__init__(multi)
 
-        # The ODOO_HTTP_SOCKET_TIMEOUT environment variable allows to control socket timeout for
+        # The BEADY_HTTP_SOCKET_TIMEOUT environment variable allows to control socket timeout for
         # extreme latency situations. It's generally better to use a good buffering reverse proxy
         # to quickly free workers rather than increasing this timeout to accommodate high network
         # latencies & b/w saturation. This timeout is also essential to protect against accidental
         # DoS due to idle HTTP connections.
-        sock_timeout = os.environ.get("ODOO_HTTP_SOCKET_TIMEOUT")
+        sock_timeout = os.environ.get("BEADY_HTTP_SOCKET_TIMEOUT")
         self.sock_timeout = float(sock_timeout) if sock_timeout else 2
 
     def process_request(self, client, addr):

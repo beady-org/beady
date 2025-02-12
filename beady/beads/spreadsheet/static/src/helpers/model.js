@@ -41,7 +41,7 @@ export async function waitForBeadySources(model) {
     promises.push(
         ...model.getters
             .getPivotIds()
-            .filter((pivotId) => model.getters.getPivotCoreDefinition(pivotId).type === "ODOO")
+            .filter((pivotId) => model.getters.getPivotCoreDefinition(pivotId).type === "BEADY")
             .map((pivotId) => model.getters.getPivot(pivotId))
             .map((pivot) => pivot.load())
     );
@@ -104,7 +104,7 @@ export async function freezeBeadyData(model) {
             const evaluatedCell = model.getters.getEvaluatedCell(position);
             if (containsBeadyFunction(cell.content)) {
                 const pivotId = model.getters.getPivotIdFromPosition(position);
-                if (pivotId && model.getters.getPivotCoreDefinition(pivotId).type !== "ODOO") {
+                if (pivotId && model.getters.getPivotCoreDefinition(pivotId).type !== "BEADY") {
                     continue;
                 }
                 cell.content = evaluatedCell.value.toString();
@@ -151,7 +151,7 @@ export async function freezeBeadyData(model) {
     }
     if (data.pivots) {
         data.pivots = Object.fromEntries(
-            Object.entries(data.pivots).filter(([id, def]) => def.type !== "ODOO")
+            Object.entries(data.pivots).filter(([id, def]) => def.type !== "BEADY")
         );
     }
     data.lists = {};
@@ -206,7 +206,7 @@ function containsBeadyFunction(content) {
     if (
         !content ||
         !content.startsWith("=") ||
-        (!content.toUpperCase().includes("ODOO.") &&
+        (!content.toUpperCase().includes("BEADY.") &&
             !content.toUpperCase().includes("_T") &&
             !content.toUpperCase().includes("PIVOT"))
     ) {
@@ -217,7 +217,7 @@ function containsBeadyFunction(content) {
         return iterateAstNodes(ast).some(
             (ast) =>
                 ast.type === "FUNCALL" &&
-                (ast.value.toUpperCase().startsWith("ODOO.") ||
+                (ast.value.toUpperCase().startsWith("BEADY.") ||
                     ast.value.toUpperCase().startsWith("_T") ||
                     ast.value.toUpperCase().startsWith("PIVOT"))
         );

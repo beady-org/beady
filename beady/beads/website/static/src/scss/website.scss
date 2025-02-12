@@ -184,7 +184,7 @@ $-seen-urls: ();
 body {
     // The color behind the boxed layout is forced by Beady. The box background
     // color uses the `$body-bg` variable.
-    // grep: BOXED_BODY_BG_ODOO
+    // grep: BOXED_BODY_BG_BEADY
     @if o-website-value('layout') != 'full' {
         background-color: o-color('body');
     }
@@ -199,7 +199,7 @@ body {
         > main {
             // The color behind the boxed layout is forced by Beady. The box
             // background color uses the `$body-bg` variable.
-            // grep: BOXED_BODY_BG_ODOO
+            // grep: BOXED_BODY_BG_BEADY
             background-color: $body-bg;
         }
 

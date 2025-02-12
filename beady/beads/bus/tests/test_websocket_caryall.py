@@ -246,7 +246,7 @@ class TestWebsocketCaryall(WebsocketCase):
                 self.websocket_connect()
                 self.assertFalse(mock.called)
 
-    @patch.dict(os.environ, {"ODOO_BUS_PUBLIC_SAMESITE_WS": "True"})
+    @patch.dict(os.environ, {"BEADY_BUS_PUBLIC_SAMESITE_WS": "True"})
     def test_public_configuration(self):
         new_test_user(self.env, login='test_user', password='Password!1')
         user_session = self.authenticate('test_user', 'Password!1')

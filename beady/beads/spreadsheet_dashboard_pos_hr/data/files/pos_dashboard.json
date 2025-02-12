@@ -75,16 +75,16 @@
           "content": "[Top Orders](beady://view/{\"viewType\":\"list\",\"action\":{\"domain\":[],\"context\":{\"group_by\":[]},\"modelName\":\"pos.order\",\"views\":[[false,\"list\"],[false,\"form\"],[false,\"kanban\"],[false,\"pivot\"],[false,\"search\"]]},\"threshold\":0,\"name\":\"Orders\"})"
         },
         "A25": { "content": "=_t(\"Sessions\")" },
-        "A26": { "content": "=ODOO.LIST(1,1,\"session_id\")" },
-        "A27": { "content": "=ODOO.LIST(1,2,\"session_id\")" },
-        "A28": { "content": "=ODOO.LIST(1,3,\"session_id\")" },
-        "A29": { "content": "=ODOO.LIST(1,4,\"session_id\")" },
-        "A30": { "content": "=ODOO.LIST(1,5,\"session_id\")" },
-        "A31": { "content": "=ODOO.LIST(1,6,\"session_id\")" },
-        "A32": { "content": "=ODOO.LIST(1,7,\"session_id\")" },
-        "A33": { "content": "=ODOO.LIST(1,8,\"session_id\")" },
-        "A34": { "content": "=ODOO.LIST(1,9,\"session_id\")" },
-        "A35": { "content": "=ODOO.LIST(1,10,\"session_id\")" },
+        "A26": { "content": "=BEADY.LIST(1,1,\"session_id\")" },
+        "A27": { "content": "=BEADY.LIST(1,2,\"session_id\")" },
+        "A28": { "content": "=BEADY.LIST(1,3,\"session_id\")" },
+        "A29": { "content": "=BEADY.LIST(1,4,\"session_id\")" },
+        "A30": { "content": "=BEADY.LIST(1,5,\"session_id\")" },
+        "A31": { "content": "=BEADY.LIST(1,6,\"session_id\")" },
+        "A32": { "content": "=BEADY.LIST(1,7,\"session_id\")" },
+        "A33": { "content": "=BEADY.LIST(1,8,\"session_id\")" },
+        "A34": { "content": "=BEADY.LIST(1,9,\"session_id\")" },
+        "A35": { "content": "=BEADY.LIST(1,10,\"session_id\")" },
         "A37": {
           "content": "[Top Sessions](beady://view/{\"viewType\":\"pivot\",\"action\":{\"domain\":[],\"context\":{\"group_by\":[\"session_id\"],\"pivot_measures\":[\"order_id\",\"price_total\"],\"pivot_column_groupby\":[],\"pivot_row_groupby\":[\"session_id\"]},\"modelName\":\"report.pos.order\",\"views\":[[false,\"graph\"],[false,\"pivot\"],[false,\"search\"]]},\"threshold\":0,\"name\":\"Orders Analysis\"})"
         },
@@ -136,16 +136,16 @@
         "B60": { "content": "=PIVOT.VALUE(3,\"order_id\",\"#user_id\",9)" },
         "B61": { "content": "=PIVOT.VALUE(3,\"order_id\",\"#user_id\",10)" },
         "C25": { "content": "=_t(\"Date\")" },
-        "C26": { "content": "=ODOO.LIST(1,1,\"date_order\")" },
-        "C27": { "content": "=ODOO.LIST(1,2,\"date_order\")" },
-        "C28": { "content": "=ODOO.LIST(1,3,\"date_order\")" },
-        "C29": { "content": "=ODOO.LIST(1,4,\"date_order\")" },
-        "C30": { "content": "=ODOO.LIST(1,5,\"date_order\")" },
-        "C31": { "content": "=ODOO.LIST(1,6,\"date_order\")" },
-        "C32": { "content": "=ODOO.LIST(1,7,\"date_order\")" },
-        "C33": { "content": "=ODOO.LIST(1,8,\"date_order\")" },
-        "C34": { "content": "=ODOO.LIST(1,9,\"config_id\")" },
-        "C35": { "content": "=ODOO.LIST(1,10,\"config_id\")" },
+        "C26": { "content": "=BEADY.LIST(1,1,\"date_order\")" },
+        "C27": { "content": "=BEADY.LIST(1,2,\"date_order\")" },
+        "C28": { "content": "=BEADY.LIST(1,3,\"date_order\")" },
+        "C29": { "content": "=BEADY.LIST(1,4,\"date_order\")" },
+        "C30": { "content": "=BEADY.LIST(1,5,\"date_order\")" },
+        "C31": { "content": "=BEADY.LIST(1,6,\"date_order\")" },
+        "C32": { "content": "=BEADY.LIST(1,7,\"date_order\")" },
+        "C33": { "content": "=BEADY.LIST(1,8,\"date_order\")" },
+        "C34": { "content": "=BEADY.LIST(1,9,\"config_id\")" },
+        "C35": { "content": "=BEADY.LIST(1,10,\"config_id\")" },
         "C38": { "content": "=_t(\"Revenue\")" },
         "C39": {
           "content": "=PIVOT.VALUE(1,\"price_total\",\"#session_id\",1)"
@@ -189,27 +189,27 @@
         "C60": { "content": "=PIVOT.VALUE(3,\"price_total\",\"#user_id\",9)" },
         "C61": { "content": "=PIVOT.VALUE(3,\"price_total\",\"#user_id\",10)" },
         "D25": { "content": "=_t(\"Point of Sale\")" },
-        "D26": { "content": "=ODOO.LIST(1,1,\"config_id\")" },
-        "D27": { "content": "=ODOO.LIST(1,2,\"config_id\")" },
-        "D28": { "content": "=ODOO.LIST(1,3,\"config_id\")" },
-        "D29": { "content": "=ODOO.LIST(1,4,\"config_id\")" },
-        "D30": { "content": "=ODOO.LIST(1,5,\"config_id\")" },
-        "D31": { "content": "=ODOO.LIST(1,6,\"config_id\")" },
-        "D32": { "content": "=ODOO.LIST(1,7,\"config_id\")" },
-        "D33": { "content": "=ODOO.LIST(1,8,\"config_id\")" },
-        "D34": { "content": "=ODOO.LIST(1,9,\"partner_id\")" },
-        "D35": { "content": "=ODOO.LIST(1,10,\"partner_id\")" },
+        "D26": { "content": "=BEADY.LIST(1,1,\"config_id\")" },
+        "D27": { "content": "=BEADY.LIST(1,2,\"config_id\")" },
+        "D28": { "content": "=BEADY.LIST(1,3,\"config_id\")" },
+        "D29": { "content": "=BEADY.LIST(1,4,\"config_id\")" },
+        "D30": { "content": "=BEADY.LIST(1,5,\"config_id\")" },
+        "D31": { "content": "=BEADY.LIST(1,6,\"config_id\")" },
+        "D32": { "content": "=BEADY.LIST(1,7,\"config_id\")" },
+        "D33": { "content": "=BEADY.LIST(1,8,\"config_id\")" },
+        "D34": { "content": "=BEADY.LIST(1,9,\"partner_id\")" },
+        "D35": { "content": "=BEADY.LIST(1,10,\"partner_id\")" },
         "E25": { "content": "=_t(\"Employee\")" },
-        "E26": { "content": "=ODOO.LIST(1,1,\"employee_id\")" },
-        "E27": { "content": "=ODOO.LIST(1,2,\"employee_id\")" },
-        "E28": { "content": "=ODOO.LIST(1,3,\"employee_id\")" },
-        "E29": { "content": "=ODOO.LIST(1,4,\"employee_id\")" },
-        "E30": { "content": "=ODOO.LIST(1,5,\"employee_id\")" },
-        "E31": { "content": "=ODOO.LIST(1,6,\"employee_id\")" },
-        "E32": { "content": "=ODOO.LIST(1,7,\"employee_id\")" },
-        "E33": { "content": "=ODOO.LIST(1,8,\"employee_id\")" },
-        "E34": { "content": "=ODOO.LIST(1,9,\"employee_id\")" },
-        "E35": { "content": "=ODOO.LIST(1,10,\"employee_id\")" },
+        "E26": { "content": "=BEADY.LIST(1,1,\"employee_id\")" },
+        "E27": { "content": "=BEADY.LIST(1,2,\"employee_id\")" },
+        "E28": { "content": "=BEADY.LIST(1,3,\"employee_id\")" },
+        "E29": { "content": "=BEADY.LIST(1,4,\"employee_id\")" },
+        "E30": { "content": "=BEADY.LIST(1,5,\"employee_id\")" },
+        "E31": { "content": "=BEADY.LIST(1,6,\"employee_id\")" },
+        "E32": { "content": "=BEADY.LIST(1,7,\"employee_id\")" },
+        "E33": { "content": "=BEADY.LIST(1,8,\"employee_id\")" },
+        "E34": { "content": "=BEADY.LIST(1,9,\"employee_id\")" },
+        "E35": { "content": "=BEADY.LIST(1,10,\"employee_id\")" },
         "E37": {
           "content": "[Top Points of Sale](beady://view/{\"viewType\":\"pivot\",\"action\":{\"domain\":[],\"context\":{\"group_by\":[\"config_id\"],\"pivot_measures\":[\"order_id\",\"price_total\"],\"pivot_column_groupby\":[],\"pivot_row_groupby\":[\"config_id\"]},\"modelName\":\"report.pos.order\",\"views\":[[false,\"graph\"],[false,\"pivot\"],[false,\"search\"]]},\"threshold\":0,\"name\":\"Orders Analysis\"})"
         },
@@ -239,16 +239,16 @@
         "E60": { "content": "=PIVOT.HEADER(4,\"#product_id\",9)" },
         "E61": { "content": "=PIVOT.HEADER(4,\"#product_id\",10)" },
         "F25": { "content": "=_t(\"Customer\")" },
-        "F26": { "content": "=ODOO.LIST(1,1,\"partner_id\")" },
-        "F27": { "content": "=ODOO.LIST(1,2,\"partner_id\")" },
-        "F28": { "content": "=ODOO.LIST(1,3,\"partner_id\")" },
-        "F29": { "content": "=ODOO.LIST(1,4,\"partner_id\")" },
-        "F30": { "content": "=ODOO.LIST(1,5,\"partner_id\")" },
-        "F31": { "content": "=ODOO.LIST(1,6,\"partner_id\")" },
-        "F32": { "content": "=ODOO.LIST(1,7,\"partner_id\")" },
-        "F33": { "content": "=ODOO.LIST(1,8,\"partner_id\")" },
-        "F34": { "content": "=ODOO.LIST(1,9,\"partner_id\")" },
-        "F35": { "content": "=ODOO.LIST(1,10,\"partner_id\")" },
+        "F26": { "content": "=BEADY.LIST(1,1,\"partner_id\")" },
+        "F27": { "content": "=BEADY.LIST(1,2,\"partner_id\")" },
+        "F28": { "content": "=BEADY.LIST(1,3,\"partner_id\")" },
+        "F29": { "content": "=BEADY.LIST(1,4,\"partner_id\")" },
+        "F30": { "content": "=BEADY.LIST(1,5,\"partner_id\")" },
+        "F31": { "content": "=BEADY.LIST(1,6,\"partner_id\")" },
+        "F32": { "content": "=BEADY.LIST(1,7,\"partner_id\")" },
+        "F33": { "content": "=BEADY.LIST(1,8,\"partner_id\")" },
+        "F34": { "content": "=BEADY.LIST(1,9,\"partner_id\")" },
+        "F35": { "content": "=BEADY.LIST(1,10,\"partner_id\")" },
         "F38": { "content": "=_t(\"Orders\")" },
         "F39": { "content": "=PIVOT.VALUE(2,\"order_id\",\"#config_id\",1)" },
         "F40": { "content": "=PIVOT.VALUE(2,\"order_id\",\"#config_id\",2)" },
@@ -272,16 +272,16 @@
         "F60": { "content": "=PIVOT.VALUE(4,\"order_id\",\"#product_id\",9)" },
         "F61": { "content": "=PIVOT.VALUE(4,\"order_id\",\"#product_id\",10)" },
         "G25": { "content": "=_t(\"Total\")" },
-        "G26": { "content": "=ODOO.LIST(1,1,\"amount_total\")" },
-        "G27": { "content": "=ODOO.LIST(1,2,\"amount_total\")" },
-        "G28": { "content": "=ODOO.LIST(1,3,\"amount_total\")" },
-        "G29": { "content": "=ODOO.LIST(1,4,\"amount_total\")" },
-        "G30": { "content": "=ODOO.LIST(1,5,\"amount_total\")" },
-        "G31": { "content": "=ODOO.LIST(1,6,\"amount_total\")" },
-        "G32": { "content": "=ODOO.LIST(1,7,\"amount_total\")" },
-        "G33": { "content": "=ODOO.LIST(1,8,\"amount_total\")" },
-        "G34": { "content": "=ODOO.LIST(1,9,\"amount_total\")" },
-        "G35": { "content": "=ODOO.LIST(1,10,\"amount_total\")" },
+        "G26": { "content": "=BEADY.LIST(1,1,\"amount_total\")" },
+        "G27": { "content": "=BEADY.LIST(1,2,\"amount_total\")" },
+        "G28": { "content": "=BEADY.LIST(1,3,\"amount_total\")" },
+        "G29": { "content": "=BEADY.LIST(1,4,\"amount_total\")" },
+        "G30": { "content": "=BEADY.LIST(1,5,\"amount_total\")" },
+        "G31": { "content": "=BEADY.LIST(1,6,\"amount_total\")" },
+        "G32": { "content": "=BEADY.LIST(1,7,\"amount_total\")" },
+        "G33": { "content": "=BEADY.LIST(1,8,\"amount_total\")" },
+        "G34": { "content": "=BEADY.LIST(1,9,\"amount_total\")" },
+        "G35": { "content": "=BEADY.LIST(1,10,\"amount_total\")" },
         "G38": { "content": "=_t(\"Revenue\")" },
         "G39": {
           "content": "=PIVOT.VALUE(2,\"price_total\",\"#config_id\",1)"
@@ -715,7 +715,7 @@
   },
   "pivots": {
     "1": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "ff0e1a26-3d4c-48b6-85a6-2777b522bb52": {
           "chain": "date",
@@ -758,7 +758,7 @@
       "rows": [{ "fieldName": "session_id" }]
     },
     "2": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "ff0e1a26-3d4c-48b6-85a6-2777b522bb52": {
           "chain": "date",
@@ -801,7 +801,7 @@
       "rows": [{ "fieldName": "config_id" }]
     },
     "3": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "ff0e1a26-3d4c-48b6-85a6-2777b522bb52": {
           "chain": "date",
@@ -848,7 +848,7 @@
       "rows": [{ "fieldName": "user_id" }]
     },
     "4": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "ff0e1a26-3d4c-48b6-85a6-2777b522bb52": {
           "chain": "date",
@@ -895,7 +895,7 @@
       "rows": [{ "fieldName": "product_id" }]
     },
     "5": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "ff0e1a26-3d4c-48b6-85a6-2777b522bb52": {
           "chain": "date",
@@ -934,7 +934,7 @@
       "rows": []
     },
     "6": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "ff0e1a26-3d4c-48b6-85a6-2777b522bb52": {
           "chain": "date",

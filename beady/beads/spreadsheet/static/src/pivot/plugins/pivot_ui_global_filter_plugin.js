@@ -131,7 +131,7 @@ export class PivotUIGlobalFilterPlugin extends BeadyUIPlugin {
                 this._addDomains();
                 break;
             case "UPDATE_PIVOT":
-            case "UPDATE_ODOO_PIVOT_DOMAIN":
+            case "UPDATE_BEADY_PIVOT_DOMAIN":
                 this._addDomain(cmd.pivotId);
                 break;
             case "UNDO":
@@ -142,7 +142,7 @@ export class PivotUIGlobalFilterPlugin extends BeadyUIPlugin {
                             "ADD_GLOBAL_FILTER",
                             "EDIT_GLOBAL_FILTER",
                             "REMOVE_GLOBAL_FILTER",
-                            "UPDATE_ODOO_PIVOT_DOMAIN",
+                            "UPDATE_BEADY_PIVOT_DOMAIN",
                             "UPDATE_PIVOT",
                         ].includes(command.type)
                     )
@@ -208,7 +208,7 @@ export class PivotUIGlobalFilterPlugin extends BeadyUIPlugin {
         for (const filter of filters) {
             const dataSource = this.getters.getPivot(pivotId);
             const { type } = this.getters.getPivotCoreDefinition(pivotId);
-            if (type !== "ODOO") {
+            if (type !== "BEADY") {
                 continue;
             }
             const { field, granularity: time } = dataSource.parseGroupField(lastNode.field);
@@ -273,7 +273,7 @@ export class PivotUIGlobalFilterPlugin extends BeadyUIPlugin {
      * @param {string} pivotId pivot id
      */
     _addDomain(pivotId) {
-        if (this.getters.getPivotCoreDefinition(pivotId).type !== "ODOO") {
+        if (this.getters.getPivotCoreDefinition(pivotId).type !== "BEADY") {
             return;
         }
         const domainList = [];
@@ -295,7 +295,7 @@ export class PivotUIGlobalFilterPlugin extends BeadyUIPlugin {
     _addDomains() {
         for (const pivotId of this.getters
             .getPivotIds()
-            .filter((pivotId) => this.getters.getPivot(pivotId).type === "ODOO")) {
+            .filter((pivotId) => this.getters.getPivot(pivotId).type === "BEADY")) {
             this._addDomain(pivotId);
         }
     }
@@ -308,7 +308,7 @@ export class PivotUIGlobalFilterPlugin extends BeadyUIPlugin {
         return this.getters
             .getPivotIds()
             .map((pivotId) => this.getters.getPivot(pivotId))
-            .filter((pivot) => pivot.type === "ODOO")
+            .filter((pivot) => pivot.type === "BEADY")
             .map((pivot) => pivot.loadMetadata());
     }
 }

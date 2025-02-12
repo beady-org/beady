@@ -17,7 +17,7 @@ from beady.tests import get_db_name, tagged
 from .test_common import TestHttpBase
 
 
-GEOIP_ODOO_FARM_2 = {
+GEOIP_BEADY_FARM_2 = {
     'city': 'Ramillies',
     'country_code': 'BE',
     'country_name': 'Belgium',
@@ -215,11 +215,11 @@ class TestHttpSession(TestHttpBase):
 
     @patch("beady.http.root.session_store.vacuum")
     def test_session8_gc_ignored_no_db_name(self, mock):
-        with patch.dict(os.environ, {'ODOO_SKIP_GC_SESSIONS': ''}):
+        with patch.dict(os.environ, {'BEADY_SKIP_GC_SESSIONS': ''}):
             self.env['ir.http']._gc_sessions()
             mock.assert_called_once()
 
-        with patch.dict(os.environ, {'ODOO_SKIP_GC_SESSIONS': '1'}):
+        with patch.dict(os.environ, {'BEADY_SKIP_GC_SESSIONS': '1'}):
             mock.reset_mock()
             self.env['ir.http']._gc_sessions()
             mock.assert_not_called()

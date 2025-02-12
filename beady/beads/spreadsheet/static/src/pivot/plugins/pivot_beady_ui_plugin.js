@@ -4,7 +4,7 @@ import { BeadyUIPlugin } from "@spreadsheet/plugins";
 import { helpers } from "@beady/o-spreadsheet";
 
 const { UNDO_REDO_PIVOT_COMMANDS } = helpers;
-UNDO_REDO_PIVOT_COMMANDS.push("UPDATE_ODOO_PIVOT_DOMAIN");
+UNDO_REDO_PIVOT_COMMANDS.push("UPDATE_BEADY_PIVOT_DOMAIN");
 
 export class PivotBeadyUIPlugin extends BeadyUIPlugin {
     static getters = /** @type {const} */ ([]);

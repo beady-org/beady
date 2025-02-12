@@ -87,7 +87,7 @@ declare module "@spreadsheet" {
 
     // this command is deprecated. use UPDATE_PIVOT instead
     export interface UpdatePivotDomainCommand {
-        type: "UPDATE_ODOO_PIVOT_DOMAIN";
+        type: "UPDATE_BEADY_PIVOT_DOMAIN";
         pivotId: string;
         domain: Array;
     }

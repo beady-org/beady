@@ -115,7 +115,7 @@ test("sort first pivot column (ascending)", async () => {
     const spreadsheetData = {
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [{ fieldName: "foo" }],
                 rows: [{ fieldName: "bar" }],
                 domain: [],
@@ -153,7 +153,7 @@ test("sort first pivot column (descending)", async () => {
     const spreadsheetData = {
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [{ fieldName: "foo" }],
                 rows: [{ fieldName: "bar" }],
                 domain: [],
@@ -191,7 +191,7 @@ test("sort second pivot column (ascending)", async () => {
     const spreadsheetData = {
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [{ fieldName: "foo" }],
                 domain: [],
                 measures: [{ id: "probability:sum", fieldName: "probability", aggregator: "sum" }],
@@ -230,7 +230,7 @@ test("sort second pivot column (descending)", async () => {
     const spreadsheetData = {
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [{ fieldName: "foo" }],
                 domain: [],
                 measures: [{ id: "probability:sum", fieldName: "probability", aggregator: "sum" }],
@@ -269,7 +269,7 @@ test("sort second pivot measure (ascending)", async () => {
     const spreadsheetData = {
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 rows: [{ fieldName: "product_id" }],
                 columns: [],
                 domain: [],
@@ -306,7 +306,7 @@ test("sort second pivot measure (descending)", async () => {
     const spreadsheetData = {
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [],
                 domain: [],
                 measures: [

@@ -47,8 +47,8 @@ test("Search highlight", async () => {
             searchTerm: "beady",
         },
         {
-            input: "software ODOO is a free",
-            output: `software <span class="${HIGHLIGHT_CLASS}">ODOO</span> is a free`,
+            input: "software BEADY is a free",
+            output: `software <span class="${HIGHLIGHT_CLASS}">BEADY</span> is a free`,
             searchTerm: "beady",
         },
         {

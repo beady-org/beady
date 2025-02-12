@@ -661,7 +661,7 @@ def relative_path_to_module_path(url, path_rel):
     return url_to_module_path(result)
 
 
-ODOO_MODULE_RE = re.compile(r"""
+BEADY_MODULE_RE = re.compile(r"""
     \s*                             # starting white space
     \/(\*|\/)                       # /* or //
     .*                              # any comment in between (optional)
@@ -681,7 +681,7 @@ def is_beady_module(url, content):
     :param content: source code
     :return: is this a beady module that need transpilation ?
     """
-    result = ODOO_MODULE_RE.match(content)
+    result = BEADY_MODULE_RE.match(content)
     if result and result['ignore']:
         return False
     addon = url.split('/')[1]
@@ -727,7 +727,7 @@ def get_aliased_beady_define_content(module_path, content):
 
     :return: the alias content to append to the source code.
     """
-    matchobj = ODOO_MODULE_RE.match(content)
+    matchobj = BEADY_MODULE_RE.match(content)
     if matchobj:
         alias = matchobj['alias']
         if alias:

@@ -39,8 +39,8 @@ test("beady pivot functions are replaced with their value", async function () {
     expect(data.formats[data.sheets[0].formats.C3]).toBe("#,##0.00");
 });
 
-test("Pivot with a type different of ODOO is not converted", async function () {
-    // Add a pivot with a type different of ODOO
+test("Pivot with a type different of BEADY is not converted", async function () {
+    // Add a pivot with a type different of BEADY
     pivotRegistry.add("NEW_KIND_OF_PIVOT", {
         ui: BeadyPivot,
         definition: BeadyPivotRuntimeDefinition,

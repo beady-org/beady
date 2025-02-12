@@ -16,7 +16,7 @@ const { getFunctionsFromTokens } = helpers;
  * @returns {number}
  */
 export function getNumberOfListFormulas(tokens) {
-    return getFunctionsFromTokens(tokens, ["ODOO.LIST", "ODOO.LIST.HEADER"]).length;
+    return getFunctionsFromTokens(tokens, ["BEADY.LIST", "BEADY.LIST.HEADER"]).length;
 }
 
 /**
@@ -27,5 +27,5 @@ export function getNumberOfListFormulas(tokens) {
  * @returns {import("../helpers/beady_functions_helpers").BeadyFunctionDescription|undefined}
  */
 export function getFirstListFunction(tokens) {
-    return getFunctionsFromTokens(tokens, ["ODOO.LIST", "ODOO.LIST.HEADER"])[0];
+    return getFunctionsFromTokens(tokens, ["BEADY.LIST", "BEADY.LIST.HEADER"])[0];
 }

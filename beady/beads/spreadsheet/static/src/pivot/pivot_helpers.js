@@ -39,12 +39,12 @@ const AGGREGATORS_BY_FIELD_TYPE = {
     reference: ["count_distinct", "count"],
 };
 
-export const ODOO_AGGREGATORS = {};
+export const BEADY_AGGREGATORS = {};
 
 for (const type in AGGREGATORS_BY_FIELD_TYPE) {
-    ODOO_AGGREGATORS[type] = {};
+    BEADY_AGGREGATORS[type] = {};
     for (const aggregator of AGGREGATORS_BY_FIELD_TYPE[type]) {
-        ODOO_AGGREGATORS[type][aggregator] = AGGREGATOR_NAMES[aggregator];
+        BEADY_AGGREGATORS[type][aggregator] = AGGREGATOR_NAMES[aggregator];
     }
 }
 

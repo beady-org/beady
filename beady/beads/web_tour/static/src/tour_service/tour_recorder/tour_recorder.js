@@ -10,7 +10,7 @@ import { tourRecorderState } from "./tour_recorder_state";
 
 export const TOUR_RECORDER_ACTIVE_LOCAL_STORAGE_KEY = "tour_recorder_active";
 const PRECISE_IDENTIFIERS = ["data-menu-xmlid", "name", "contenteditable"];
-const ODOO_CLASS_REGEX = /^oe?(-|_)[\w-]+$/;
+const BEADY_CLASS_REGEX = /^oe?(-|_)[\w-]+$/;
 const VALIDATING_KEYS = ["Enter", "Tab"];
 
 /**
@@ -31,7 +31,7 @@ const getShortestSelector = (paths) => {
         }
 
         let currentPredicate = currentElem.tagName.toLowerCase();
-        const beadyClass = [...currentElem.classList].find((c) => c.match(ODOO_CLASS_REGEX));
+        const beadyClass = [...currentElem.classList].find((c) => c.match(BEADY_CLASS_REGEX));
         if (beadyClass) {
             currentPredicate = `.${beadyClass}`;
             hasBeadyClass = true;

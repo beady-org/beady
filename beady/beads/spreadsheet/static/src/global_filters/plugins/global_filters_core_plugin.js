@@ -291,7 +291,7 @@ export class GlobalFiltersCorePlugin extends BeadyCorePlugin {
     // ---------------------------------------------------------------------
 
     /**
-     * Update all ODOO.FILTER.VALUE formulas to reference a filter
+     * Update all BEADY.FILTER.VALUE formulas to reference a filter
      * by its new label.
      *
      * @param {string} currentLabel

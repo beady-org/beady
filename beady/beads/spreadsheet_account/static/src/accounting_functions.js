@@ -140,7 +140,7 @@ export function parseAccountingDate(dateRange, locale) {
     }
 }
 
-const ODOO_FIN_ARGS = () => [
+const BEADY_FIN_ARGS = () => [
     arg("account_codes (string)", _t("The prefix of the accounts.")),
     arg(
         "date_range (string, date)",
@@ -154,9 +154,9 @@ const ODOO_FIN_ARGS = () => [
     ),
 ];
 
-functionRegistry.add("ODOO.CREDIT", {
+functionRegistry.add("BEADY.CREDIT", {
     description: _t("Get the total credit for the specified account(s) and period."),
-    args: ODOO_FIN_ARGS(),
+    args: BEADY_FIN_ARGS(),
     category: "Beady",
     returns: ["NUMBER"],
     compute: function (
@@ -187,9 +187,9 @@ functionRegistry.add("ODOO.CREDIT", {
     },
 });
 
-functionRegistry.add("ODOO.DEBIT", {
+functionRegistry.add("BEADY.DEBIT", {
     description: _t("Get the total debit for the specified account(s) and period."),
-    args: ODOO_FIN_ARGS(),
+    args: BEADY_FIN_ARGS(),
     category: "Beady",
     returns: ["NUMBER"],
     compute: function (
@@ -220,9 +220,9 @@ functionRegistry.add("ODOO.DEBIT", {
     },
 });
 
-functionRegistry.add("ODOO.BALANCE", {
+functionRegistry.add("BEADY.BALANCE", {
     description: _t("Get the total balance for the specified account(s) and period."),
-    args: ODOO_FIN_ARGS(),
+    args: BEADY_FIN_ARGS(),
     category: "Beady",
     returns: ["NUMBER"],
     compute: function (
@@ -259,7 +259,7 @@ functionRegistry.add("ODOO.BALANCE", {
     },
 });
 
-functionRegistry.add("ODOO.FISCALYEAR.START", {
+functionRegistry.add("BEADY.FISCALYEAR.START", {
     description: _t("Returns the starting date of the fiscal year encompassing the provided date."),
     args: [
         arg("day (date)", _t("The day from which to extract the fiscal year start.")),
@@ -279,7 +279,7 @@ functionRegistry.add("ODOO.FISCALYEAR.START", {
     },
 });
 
-functionRegistry.add("ODOO.FISCALYEAR.END", {
+functionRegistry.add("BEADY.FISCALYEAR.END", {
     description: _t("Returns the ending date of the fiscal year encompassing the provided date."),
     args: [
         arg("day (date)", _t("The day from which to extract the fiscal year end.")),
@@ -320,7 +320,7 @@ const ACCOUNT_TYPES = [
     "off_balance",
 ];
 
-functionRegistry.add("ODOO.ACCOUNT.GROUP", {
+functionRegistry.add("BEADY.ACCOUNT.GROUP", {
     description: _t("Returns the account codes of a given group."),
     args: [
         arg(

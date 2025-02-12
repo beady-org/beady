@@ -22,14 +22,14 @@ _logger = logging.getLogger(__name__)
 TIMEOUT = 50
 
 # custom function to call instead of default PostgreSQL's `pg_notify`
-ODOO_NOTIFY_FUNCTION = os.getenv('ODOO_NOTIFY_FUNCTION', 'pg_notify')
+BEADY_NOTIFY_FUNCTION = os.getenv('BEADY_NOTIFY_FUNCTION', 'pg_notify')
 
 
 def get_notify_payload_max_length(default=8000):
     try:
-        length = int(os.environ.get('ODOO_NOTIFY_PAYLOAD_MAX_LENGTH', default))
+        length = int(os.environ.get('BEADY_NOTIFY_PAYLOAD_MAX_LENGTH', default))
     except ValueError:
-        _logger.warning("ODOO_NOTIFY_PAYLOAD_MAX_LENGTH has to be an integer, "
+        _logger.warning("BEADY_NOTIFY_PAYLOAD_MAX_LENGTH has to be an integer, "
                         "defaulting to %d bytes", default)
         length = default
     return length
@@ -153,7 +153,7 @@ class ImBus(models.Model):
                         cr.execute(
                             SQL(
                                 "SELECT %s('imbus', %s)",
-                                SQL.identifier(ODOO_NOTIFY_FUNCTION),
+                                SQL.identifier(BEADY_NOTIFY_FUNCTION),
                                 payload,
                             )
                         )

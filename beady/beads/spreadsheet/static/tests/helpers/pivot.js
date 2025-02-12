@@ -40,7 +40,7 @@ export async function insertPivotInSpreadsheet(model, pivotId, params) {
 
     const pyEnv = getPyEnv();
     const pivot = {
-        type: "ODOO",
+        type: "BEADY",
         sortedColumn: null,
         domain: [],
         context: {},

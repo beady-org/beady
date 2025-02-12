@@ -17,9 +17,9 @@ function identity(cmd) {
     return [cmd];
 }
 
-coreTypes.add("UPDATE_ODOO_PIVOT_DOMAIN");
+coreTypes.add("UPDATE_BEADY_PIVOT_DOMAIN");
 
-invalidateEvaluationCommands.add("UPDATE_ODOO_PIVOT_DOMAIN");
+invalidateEvaluationCommands.add("UPDATE_BEADY_PIVOT_DOMAIN");
 
 cellMenuRegistry.add("pivot_see_records", {
     name: _t("See records"),
@@ -35,6 +35,6 @@ cellMenuRegistry.add("pivot_see_records", {
     icon: "o-spreadsheet-Icon.SEE_RECORDS",
 });
 
-inverseCommandRegistry.add("UPDATE_ODOO_PIVOT_DOMAIN", identity);
+inverseCommandRegistry.add("UPDATE_BEADY_PIVOT_DOMAIN", identity);
 
 export { PivotBeadyCorePlugin, PivotUIGlobalFilterPlugin };

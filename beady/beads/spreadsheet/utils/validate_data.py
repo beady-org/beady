@@ -144,7 +144,7 @@ def filter_fields(data):
                 fields_by_model[model].add(matching["field"])
     else:
         for pivot in data["pivots"].values():
-            if pivot.get("type", "ODOO") == "ODOO":
+            if pivot.get("type", "BEADY") == "BEADY":
                 model = pivot["model"]
                 field = pivot.get("fieldMatching", {}).get("chain")
                 if field:
@@ -177,7 +177,7 @@ def extract_fields(extract_fn, items):
 
 def fields_in_spreadsheet(data):
     """return all fields, grouped by model, used in the spreadsheet"""
-    beady_pivots = (pivot for pivot in data.get("pivots", dict()).values() if pivot.get("type", "ODOO") == "ODOO")
+    beady_pivots = (pivot for pivot in data.get("pivots", dict()).values() if pivot.get("type", "BEADY") == "BEADY")
     all_fields = chain(
         extract_fields(list_fields, data.get("lists", dict()).values()).items(),
         extract_fields(pivot_fields, beady_pivots).items(),

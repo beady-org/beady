@@ -428,8 +428,8 @@ class IotBoxOwlHomePage(Home):
                 return
             logger_name = logger.name
 
-        ODOO_TOOL_CONFIG_HANDLER_NAME = 'log_handler'
-        LOG_HANDLERS = (helpers.get_conf(ODOO_TOOL_CONFIG_HANDLER_NAME, section='options') or []).split(',')
+        BEADY_TOOL_CONFIG_HANDLER_NAME = 'log_handler'
+        LOG_HANDLERS = (helpers.get_conf(BEADY_TOOL_CONFIG_HANDLER_NAME, section='options') or []).split(',')
         LOGGER_PREFIX = logger_name + ':'
         IS_NEW_LEVEL_PARENT = new_level == 'parent'
 
@@ -458,7 +458,7 @@ class IotBoxOwlHomePage(Home):
             new_entry = LOGGER_PREFIX + new_level_upper_case
             log_handlers_without_logger.append(new_entry)
             _logger.debug('Adding to beady config log_handler: %s', new_entry)
-        conf[ODOO_TOOL_CONFIG_HANDLER_NAME] = ','.join(log_handlers_without_logger)
+        conf[BEADY_TOOL_CONFIG_HANDLER_NAME] = ','.join(log_handlers_without_logger)
 
         # Update the logger dynamically
         real_new_level = logging.NOTSET if IS_NEW_LEVEL_PARENT else new_level_upper_case

@@ -765,7 +765,7 @@
   },
   "pivots": {
     "1": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "fb3700b0-4ee9-4086-86ac-6c62a7d33d37": {
           "chain": "date",
@@ -808,7 +808,7 @@
       "rows": [{ "fieldName": "project_id" }]
     },
     "2": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "fb3700b0-4ee9-4086-86ac-6c62a7d33d37": {
           "chain": "date",
@@ -851,7 +851,7 @@
       "rows": [{ "fieldName": "task_id" }]
     },
     "3": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "fb3700b0-4ee9-4086-86ac-6c62a7d33d37": {
           "chain": "date",
@@ -898,7 +898,7 @@
       "rows": [{ "fieldName": "department_id" }]
     },
     "4": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "fb3700b0-4ee9-4086-86ac-6c62a7d33d37": {
           "chain": "date",
@@ -945,7 +945,7 @@
       "rows": [{ "fieldName": "employee_id" }]
     },
     "5": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "fb3700b0-4ee9-4086-86ac-6c62a7d33d37": {
           "chain": "date",
@@ -981,7 +981,7 @@
       "rows": [{ "fieldName": "timesheet_invoice_type" }]
     },
     "6": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "fb3700b0-4ee9-4086-86ac-6c62a7d33d37": {
           "chain": "date",

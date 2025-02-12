@@ -17,7 +17,7 @@ const { functionRegistry } = spreadsheet.registries;
 // Spreadsheet functions
 //--------------------------------------------------------------------------
 
-const ODOO_FILTER_VALUE = /** @satisfies {CustomFunctionDescription} */ ({
+const BEADY_FILTER_VALUE = /** @satisfies {CustomFunctionDescription} */ ({
     description: _t("Return the current value of a spreadsheet filter."),
     args: [arg("filter_name (string)", _t("The label of the filter whose value to return."))],
     category: "Beady",
@@ -32,4 +32,4 @@ const ODOO_FILTER_VALUE = /** @satisfies {CustomFunctionDescription} */ ({
 });
 
 functionRegistry
-    .add("ODOO.FILTER.VALUE", ODOO_FILTER_VALUE);
+    .add("BEADY.FILTER.VALUE", BEADY_FILTER_VALUE);

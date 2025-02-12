@@ -62,7 +62,7 @@ export class ListCorePlugin extends BeadyCorePlugin {
 
     allowDispatch(cmd) {
         switch (cmd.type) {
-            case "INSERT_ODOO_LIST":
+            case "INSERT_BEADY_LIST":
                 if (cmd.id !== this.nextId.toString()) {
                     return CommandResult.InvalidNextId;
                 }
@@ -70,7 +70,7 @@ export class ListCorePlugin extends BeadyCorePlugin {
                     return CommandResult.ListIdDuplicated;
                 }
                 break;
-            case "DUPLICATE_ODOO_LIST":
+            case "DUPLICATE_BEADY_LIST":
                 if (!this.lists[cmd.listId]) {
                     return CommandResult.ListIdNotFound;
                 }
@@ -78,7 +78,7 @@ export class ListCorePlugin extends BeadyCorePlugin {
                     return CommandResult.InvalidNextId;
                 }
                 break;
-            case "RENAME_ODOO_LIST":
+            case "RENAME_BEADY_LIST":
                 if (!(cmd.listId in this.lists)) {
                     return CommandResult.ListIdNotFound;
                 }
@@ -86,8 +86,8 @@ export class ListCorePlugin extends BeadyCorePlugin {
                     return CommandResult.EmptyName;
                 }
                 break;
-            case "UPDATE_ODOO_LIST":
-            case "UPDATE_ODOO_LIST_DOMAIN":
+            case "UPDATE_BEADY_LIST":
+            case "UPDATE_BEADY_LIST_DOMAIN":
                 if (!(cmd.listId in this.lists)) {
                     return CommandResult.ListIdNotFound;
                 }
@@ -108,7 +108,7 @@ export class ListCorePlugin extends BeadyCorePlugin {
      */
     handle(cmd) {
         switch (cmd.type) {
-            case "INSERT_ODOO_LIST": {
+            case "INSERT_BEADY_LIST": {
                 const { sheetId, col, row, id, definition, linesNumber, columns } = cmd;
                 const anchor = [col, row];
                 this._addList(id, definition);
@@ -116,29 +116,29 @@ export class ListCorePlugin extends BeadyCorePlugin {
                 this.history.update("nextId", parseInt(id, 10) + 1);
                 break;
             }
-            case "DUPLICATE_ODOO_LIST": {
+            case "DUPLICATE_BEADY_LIST": {
                 const { listId, newListId } = cmd;
                 this._addList(newListId, deepCopy(this.lists[listId].definition));
                 this.history.update("nextId", parseInt(newListId, 10) + 1);
                 break;
             }
-            case "RE_INSERT_ODOO_LIST": {
+            case "RE_INSERT_BEADY_LIST": {
                 const { sheetId, col, row, id, linesNumber, columns } = cmd;
                 const anchor = [col, row];
                 this._insertList(sheetId, anchor, id, linesNumber, columns);
                 break;
             }
-            case "RENAME_ODOO_LIST": {
+            case "RENAME_BEADY_LIST": {
                 this.history.update("lists", cmd.listId, "definition", "name", cmd.name);
                 break;
             }
-            case "REMOVE_ODOO_LIST": {
+            case "REMOVE_BEADY_LIST": {
                 const lists = { ...this.lists };
                 delete lists[cmd.listId];
                 this.history.update("lists", lists);
                 break;
             }
-            case "UPDATE_ODOO_LIST_DOMAIN": {
+            case "UPDATE_BEADY_LIST_DOMAIN": {
                 this.history.update(
                     "lists",
                     cmd.listId,
@@ -149,7 +149,7 @@ export class ListCorePlugin extends BeadyCorePlugin {
                 );
                 break;
             }
-            case "UPDATE_ODOO_LIST": {
+            case "UPDATE_BEADY_LIST": {
                 this.history.update("lists", cmd.listId, "definition", cmd.list);
                 break;
             }
@@ -315,7 +315,7 @@ export class ListCorePlugin extends BeadyCorePlugin {
                 sheetId,
                 col,
                 row,
-                content: `=ODOO.LIST.HEADER(${id},"${column.name}")`,
+                content: `=BEADY.LIST.HEADER(${id},"${column.name}")`,
             });
             col++;
         }
@@ -331,7 +331,7 @@ export class ListCorePlugin extends BeadyCorePlugin {
                     sheetId,
                     col,
                     row,
-                    content: `=ODOO.LIST(${id},${i},"${column.name}")`,
+                    content: `=BEADY.LIST(${id},${i},"${column.name}")`,
                 });
                 col++;
             }

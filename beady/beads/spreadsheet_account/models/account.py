@@ -96,7 +96,7 @@ class AccountMove(models.Model):
 
     @api.model
     def spreadsheet_fetch_debit_credit(self, args_list):
-        """Fetch data for ODOO.CREDIT, ODOO.DEBIT and ODOO.BALANCE formulas
+        """Fetch data for BEADY.CREDIT, BEADY.DEBIT and BEADY.BALANCE formulas
         The input list looks like this:
         [{
             date_range: {

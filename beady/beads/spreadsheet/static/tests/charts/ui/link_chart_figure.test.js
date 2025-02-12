@@ -134,7 +134,7 @@ test("icon external link is on the chart when its linked to an beady menu", asyn
     });
     await mountSpreadsheet(model);
     createBasicChart(model, chartId);
-    model.dispatch("LINK_ODOO_MENU_TO_CHART", {
+    model.dispatch("LINK_BEADY_MENU_TO_CHART", {
         chartId,
         beadyMenuId: 1,
     });
@@ -151,7 +151,7 @@ test("icon external link is not on the chart when its linked to a wrong beady me
     });
     await mountSpreadsheet(model);
     createBasicChart(model, chartId);
-    model.dispatch("LINK_ODOO_MENU_TO_CHART", {
+    model.dispatch("LINK_BEADY_MENU_TO_CHART", {
         chartId,
         beadyMenuId: "menu which does not exist",
     });
@@ -167,7 +167,7 @@ test("icon external link isn't on the chart in dashboard mode", async function (
     });
     await mountSpreadsheet(model);
     createBasicChart(model, chartId);
-    model.dispatch("LINK_ODOO_MENU_TO_CHART", {
+    model.dispatch("LINK_BEADY_MENU_TO_CHART", {
         chartId,
         beadyMenuId: 1,
     });
@@ -188,7 +188,7 @@ test("click on icon external link on chart redirect to the beady menu", async fu
     const fixture = await mountSpreadsheet(model);
 
     createBasicChart(model, chartId);
-    model.dispatch("LINK_ODOO_MENU_TO_CHART", {
+    model.dispatch("LINK_BEADY_MENU_TO_CHART", {
         chartId,
         beadyMenuId: 2,
     });
@@ -210,7 +210,7 @@ test("Click on chart in dashboard mode redirect to the beady menu", async functi
     const fixture = await mountSpreadsheet(model);
 
     createBasicChart(model, chartId);
-    model.dispatch("LINK_ODOO_MENU_TO_CHART", {
+    model.dispatch("LINK_BEADY_MENU_TO_CHART", {
         chartId,
         beadyMenuId: 2,
     });
@@ -239,7 +239,7 @@ test("can use menus xmlIds instead of menu ids", async function () {
     const fixture = await mountSpreadsheet(model);
 
     createBasicChart(model, chartId);
-    model.dispatch("LINK_ODOO_MENU_TO_CHART", {
+    model.dispatch("LINK_BEADY_MENU_TO_CHART", {
         chartId,
         beadyMenuId: "documents_spreadsheet.test.menu2",
     });
@@ -265,7 +265,7 @@ test("Trying to open a menu without an action sends a notification to the user",
     const fixture = await mountSpreadsheet(model);
 
     createBasicChart(model, chartId);
-    model.dispatch("LINK_ODOO_MENU_TO_CHART", {
+    model.dispatch("LINK_BEADY_MENU_TO_CHART", {
         chartId,
         beadyMenuId: "documents_spreadsheet.test.menu_without_action",
     });

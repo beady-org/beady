@@ -15,7 +15,7 @@ class Command:
         commands[cls.name] = cls
 
 
-ODOO_HELP = """\
+BEADY_HELP = """\
 Beady CLI, use '{beady_bin} --help' for regular server options.
 
 Available commands:
@@ -31,7 +31,7 @@ class Help(Command):
             "    {}{}".format(name.ljust(padding), (command.__doc__ or "").strip())
             for name, command in sorted(commands.items())
         ])
-        print(ODOO_HELP.format(  # pylint: disable=bad-builtin
+        print(BEADY_HELP.format(  # pylint: disable=bad-builtin
             beady_bin=Path(sys.argv[0]).name,
             command_list=command_list
         ))

@@ -1,5 +1,5 @@
 import { describe, expect, test } from "@beady/hoot";
-import { ODOO_VERSION } from "@spreadsheet/o_spreadsheet/migration";
+import { BEADY_VERSION } from "@spreadsheet/o_spreadsheet/migration";
 import { Model, load } from "@beady/o-spreadsheet";
 import { defineSpreadsheetActions, defineSpreadsheetModels } from "../helpers/data";
 
@@ -28,10 +28,10 @@ test("Beady formulas are migrated", () => {
     const migratedData = load(data);
     expect(migratedData.sheets[0].cells.A1.content).toBe(`=PIVOT.VALUE("1")`);
     expect(migratedData.sheets[0].cells.A2.content).toBe(`=PIVOT.HEADER("1")`);
-    expect(migratedData.sheets[0].cells.A3.content).toBe(`=ODOO.FILTER.VALUE("1")`);
-    expect(migratedData.sheets[0].cells.A4.content).toBe(`=ODOO.LIST("1")`);
-    expect(migratedData.sheets[0].cells.A5.content).toBe(`=ODOO.LIST.HEADER("1")`);
-    expect(migratedData.sheets[0].cells.A6.content).toBe(`=ODOO.PIVOT.POSITION("1")`);
+    expect(migratedData.sheets[0].cells.A3.content).toBe(`=BEADY.FILTER.VALUE("1")`);
+    expect(migratedData.sheets[0].cells.A4.content).toBe(`=BEADY.LIST("1")`);
+    expect(migratedData.sheets[0].cells.A5.content).toBe(`=BEADY.LIST.HEADER("1")`);
+    expect(migratedData.sheets[0].cells.A6.content).toBe(`=BEADY.PIVOT.POSITION("1")`);
     expect(migratedData.sheets[0].cells.A7.content).toBe(`=PIVOT.VALUE("1")`);
 });
 
@@ -42,10 +42,10 @@ test("Pivot 'day' arguments are migrated", () => {
         sheets: [
             {
                 cells: {
-                    A1: { content: `=ODOO.PIVOT("1","21/07/2022")` },
-                    A2: { content: `=ODOO.PIVOT.HEADER("1","11/12/2022")` },
+                    A1: { content: `=BEADY.PIVOT("1","21/07/2022")` },
+                    A2: { content: `=BEADY.PIVOT.HEADER("1","11/12/2022")` },
                     A3: { content: `=beady.pivot("1","21/07/2021")` },
-                    A4: { content: `=ODOO.PIVOT("1","test")` },
+                    A4: { content: `=BEADY.PIVOT("1","test")` },
                     A5: { content: `=beady.pivot("1","21/07/2021")+"21/07/2021"` },
                     A6: { content: `=BAD_FORMULA(` },
                 },
@@ -415,7 +415,7 @@ test("Pivot are migrated from 6 to 9", () => {
     const migratedData = load(data);
     expect(Object.values(migratedData.pivots).length).toBe(1);
     expect(migratedData.pivots["1"]).toEqual({
-        type: "ODOO",
+        type: "BEADY",
         fieldMatching: { 1: { chain: "foo", type: "char" } },
         name: "Name",
         model: "Model",
@@ -432,7 +432,7 @@ test("Pivot are migrated from 9 to 10", () => {
         beadyVersion: 9,
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 name: "Name",
                 model: "res.model",
                 measures: ["probability"],
@@ -445,7 +445,7 @@ test("Pivot are migrated from 9 to 10", () => {
     const migratedData = load(data);
     expect(Object.values(migratedData.pivots).length).toBe(1);
     expect(migratedData.pivots["1"]).toEqual({
-        type: "ODOO",
+        type: "BEADY",
         name: "Name",
         model: "res.model",
         measures: [{ id: "probability", fieldName: "probability", aggregator: undefined }],
@@ -462,10 +462,10 @@ test("Pivot formulas are migrated from 9 to 10", () => {
         sheets: [
             {
                 cells: {
-                    A1: { content: `=ODOO.PIVOT("1")` },
-                    A2: { content: `=ODOO.PIVOT.HEADER("1")` },
-                    A3: { content: `=ODOO.PIVOT.POSITION("1")` },
-                    A4: { content: `=ODOO.PIVOT.TABLE("1")` },
+                    A1: { content: `=BEADY.PIVOT("1")` },
+                    A2: { content: `=BEADY.PIVOT.HEADER("1")` },
+                    A3: { content: `=BEADY.PIVOT.POSITION("1")` },
+                    A4: { content: `=BEADY.PIVOT.TABLE("1")` },
                     A5: { content: `=beady.pivot("1")` },
                 },
             },
@@ -474,7 +474,7 @@ test("Pivot formulas are migrated from 9 to 10", () => {
     const migratedData = load(data);
     expect(migratedData.sheets[0].cells.A1.content).toBe(`=PIVOT.VALUE("1")`);
     expect(migratedData.sheets[0].cells.A2.content).toBe(`=PIVOT.HEADER("1")`);
-    expect(migratedData.sheets[0].cells.A3.content).toBe(`=ODOO.PIVOT.POSITION("1")`);
+    expect(migratedData.sheets[0].cells.A3.content).toBe(`=BEADY.PIVOT.POSITION("1")`);
     expect(migratedData.sheets[0].cells.A4.content).toBe(`=PIVOT("1")`);
     expect(migratedData.sheets[0].cells.A5.content).toBe(`=PIVOT.VALUE("1")`);
 });
@@ -487,29 +487,29 @@ test("Pivot formulas using pivot positions are migrated (11 to 12)", () => {
             {
                 cells: {
                     A1: {
-                        content: `=-PIVOT.VALUE("1","balance","account_id",ODOO.PIVOT.POSITION("1","account_id",12),"date:quarter","4/"&ODOO.FILTER.VALUE("Year"))`,
+                        content: `=-PIVOT.VALUE("1","balance","account_id",BEADY.PIVOT.POSITION("1","account_id",12),"date:quarter","4/"&BEADY.FILTER.VALUE("Year"))`,
                     },
                     A2: {
-                        content: `=PIVOT.HEADER("1","account_id",ODOO.PIVOT.POSITION("1","account_id",14))`,
+                        content: `=PIVOT.HEADER("1","account_id",BEADY.PIVOT.POSITION("1","account_id",14))`,
                     },
-                    A3: { content: `=ODOO.PIVOT.POSITION("1","account_id",14)` },
-                    A4: { content: `=ODOO.PIVOT.POSITION("1",14)` },
+                    A3: { content: `=BEADY.PIVOT.POSITION("1","account_id",14)` },
+                    A4: { content: `=BEADY.PIVOT.POSITION("1",14)` },
                 },
             },
         ],
     };
     const migratedData = load(data);
     expect(migratedData.sheets[0].cells.A1.content).toBe(
-        `=-PIVOT.VALUE("1","balance","#account_id",12,"date:quarter","4/"&ODOO.FILTER.VALUE("Year"))`
+        `=-PIVOT.VALUE("1","balance","#account_id",12,"date:quarter","4/"&BEADY.FILTER.VALUE("Year"))`
     );
     expect(migratedData.sheets[0].cells.A2.content).toBe(`=PIVOT.HEADER("1","#account_id",14)`);
     expect(migratedData.sheets[0].cells.A3.content).toBe(
-        `=ODOO.PIVOT.POSITION("1","account_id",14)`
+        `=BEADY.PIVOT.POSITION("1","account_id",14)`
     );
-    expect(migratedData.sheets[0].cells.A4.content).toBe(`=ODOO.PIVOT.POSITION("1",14)`);
+    expect(migratedData.sheets[0].cells.A4.content).toBe(`=BEADY.PIVOT.POSITION("1",14)`);
 });
 
 test("Beady version is exported", () => {
     const model = new Model();
-    expect(model.exportData().beadyVersion).toBe(ODOO_VERSION);
+    expect(model.exportData().beadyVersion).toBe(BEADY_VERSION);
 });

@@ -834,9 +834,9 @@ test("Get active filters with date filter enabled", async function () {
     expect(model.getters.getActiveFilterCount()).toBe(1);
 });
 
-test("ODOO.FILTER.VALUE text filter", async function () {
+test("BEADY.FILTER.VALUE text filter", async function () {
     const model = await createModelWithDataSource();
-    setCellContent(model, "A10", `=ODOO.FILTER.VALUE("Text Filter")`);
+    setCellContent(model, "A10", `=BEADY.FILTER.VALUE("Text Filter")`);
     await animationFrame();
     expect(getCellValue(model, "A10")).toBe("#ERROR");
     await addGlobalFilter(model, {
@@ -855,9 +855,9 @@ test("ODOO.FILTER.VALUE text filter", async function () {
     expect(getCellValue(model, "A10")).toBe("Hello");
 });
 
-test("ODOO.FILTER.VALUE date filter", async function () {
+test("BEADY.FILTER.VALUE date filter", async function () {
     const model = await createModelWithDataSource();
-    setCellContent(model, "A10", `=ODOO.FILTER.VALUE("Date Filter")`);
+    setCellContent(model, "A10", `=BEADY.FILTER.VALUE("Date Filter")`);
     await animationFrame();
     await addGlobalFilter(model, {
         id: "42",
@@ -904,7 +904,7 @@ test("ODOO.FILTER.VALUE date filter", async function () {
     expect(getCellValue(model, "A10")).toBe(``);
 });
 
-test("ODOO.FILTER.VALUE date from/to without values", async function () {
+test("BEADY.FILTER.VALUE date from/to without values", async function () {
     const model = await createModelWithDataSource();
     await addGlobalFilter(model, {
         id: "42",
@@ -912,14 +912,14 @@ test("ODOO.FILTER.VALUE date from/to without values", async function () {
         label: "Date Filter",
         rangeType: "from_to",
     });
-    setCellContent(model, "A1", `=ODOO.FILTER.VALUE("Date Filter")`);
+    setCellContent(model, "A1", `=BEADY.FILTER.VALUE("Date Filter")`);
     expect(getEvaluatedCell(model, "A1").value).toBe("");
     expect(getEvaluatedCell(model, "B1").value).toBe("");
 });
 
-test("ODOO.FILTER.VALUE date from/to with only from defined", async function () {
+test("BEADY.FILTER.VALUE date from/to with only from defined", async function () {
     const model = await createModelWithDataSource();
-    setCellContent(model, "A1", `=ODOO.FILTER.VALUE("Date Filter")`);
+    setCellContent(model, "A1", `=BEADY.FILTER.VALUE("Date Filter")`);
     await addGlobalFilter(model, {
         id: "42",
         type: "date",
@@ -938,9 +938,9 @@ test("ODOO.FILTER.VALUE date from/to with only from defined", async function () 
     expect(getEvaluatedCell(model, "B1").value).toBe("");
 });
 
-test("ODOO.FILTER.VALUE date from/to with only to defined", async function () {
+test("BEADY.FILTER.VALUE date from/to with only to defined", async function () {
     const model = await createModelWithDataSource();
-    setCellContent(model, "A1", `=ODOO.FILTER.VALUE("Date Filter")`);
+    setCellContent(model, "A1", `=BEADY.FILTER.VALUE("Date Filter")`);
     await addGlobalFilter(model, {
         id: "42",
         type: "date",
@@ -959,9 +959,9 @@ test("ODOO.FILTER.VALUE date from/to with only to defined", async function () {
     expect(getEvaluatedCell(model, "B1").formattedValue).toBe("1/1/2020");
 });
 
-test("ODOO.FILTER.VALUE date from/to with from and to defined", async function () {
+test("BEADY.FILTER.VALUE date from/to with from and to defined", async function () {
     const model = await createModelWithDataSource();
-    setCellContent(model, "A1", `=ODOO.FILTER.VALUE("Date Filter")`);
+    setCellContent(model, "A1", `=BEADY.FILTER.VALUE("Date Filter")`);
     await addGlobalFilter(model, {
         id: "42",
         type: "date",
@@ -983,7 +983,7 @@ test("ODOO.FILTER.VALUE date from/to with from and to defined", async function (
     expect(getEvaluatedCell(model, "B1").formattedValue).toBe("1/1/2021");
 });
 
-test("ODOO.FILTER.VALUE relation filter", async function () {
+test("BEADY.FILTER.VALUE relation filter", async function () {
     const model = await createModelWithDataSource({
         mockRPC: function (route, { method, args }) {
             if (method === "read") {
@@ -997,7 +997,7 @@ test("ODOO.FILTER.VALUE relation filter", async function () {
             }
         },
     });
-    setCellContent(model, "A10", `=ODOO.FILTER.VALUE("Relation Filter")`);
+    setCellContent(model, "A10", `=BEADY.FILTER.VALUE("Relation Filter")`);
     await animationFrame();
     await addGlobalFilter(model, {
         id: "42",
@@ -1036,7 +1036,7 @@ test("ODOO.FILTER.VALUE relation filter", async function () {
     expect.verifySteps(["read_1", "read_2"]);
 });
 
-test("ODOO.FILTER.VALUE with escaped quotes in the filter label", async function () {
+test("BEADY.FILTER.VALUE with escaped quotes in the filter label", async function () {
     const model = await createModelWithDataSource();
     await addGlobalFilter(model, {
         id: "42",
@@ -1044,11 +1044,11 @@ test("ODOO.FILTER.VALUE with escaped quotes in the filter label", async function
         label: 'my "special" filter',
         defaultValue: "Jean-Jacques",
     });
-    setCellContent(model, "A1", '=ODOO.FILTER.VALUE("my \\"special\\" filter")');
+    setCellContent(model, "A1", '=BEADY.FILTER.VALUE("my \\"special\\" filter")');
     expect(getCellValue(model, "A1")).toBe("Jean-Jacques");
 });
 
-test("ODOO.FILTER.VALUE formulas are updated when filter label is changed", async function () {
+test("BEADY.FILTER.VALUE formulas are updated when filter label is changed", async function () {
     const model = await createModelWithDataSource();
     await addGlobalFilter(model, {
         id: "42",
@@ -1058,7 +1058,7 @@ test("ODOO.FILTER.VALUE formulas are updated when filter label is changed", asyn
     setCellContent(
         model,
         "A10",
-        `=ODOO.FILTER.VALUE("Cuillère") & ODOO.FILTER.VALUE( "Cuillère" )`
+        `=BEADY.FILTER.VALUE("Cuillère") & BEADY.FILTER.VALUE( "Cuillère" )`
     );
     const [filter] = model.getters.getGlobalFilters();
     const newFilter = {
@@ -1068,7 +1068,7 @@ test("ODOO.FILTER.VALUE formulas are updated when filter label is changed", asyn
     };
     await editGlobalFilter(model, newFilter);
     expect(getCellFormula(model, "A10")).toBe(
-        `=ODOO.FILTER.VALUE("Interprete") & ODOO.FILTER.VALUE("Interprete")`
+        `=BEADY.FILTER.VALUE("Interprete") & BEADY.FILTER.VALUE("Interprete")`
     );
 });
 
@@ -1194,7 +1194,7 @@ test("load data only once if filter is not active (without default value)", asyn
         ],
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [{ fieldName: "foo" }],
                 domain: [],
                 measures: [{ id: "probability:sum", fieldName: "probability", aggregator: "sum" }],
@@ -1243,7 +1243,7 @@ test("load data only once if filter is active (with a default value)", async fun
         ],
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [{ fieldName: "foo" }],
                 domain: [],
                 measures: [{ id: "probability:sum", fieldName: "probability", aggregator: "sum" }],
@@ -1288,7 +1288,7 @@ test("don't reload data if an empty filter is added", async function () {
         ],
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [{ fieldName: "foo" }],
                 domain: [],
                 measures: [{ id: "probability:sum", fieldName: "probability", aggregator: "sum" }],
@@ -1329,7 +1329,7 @@ test("don't load data if a filter is added but the data is not needed", async fu
     const spreadsheetData = {
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [{ fieldName: "foo" }],
                 domain: [],
                 measures: [{ id: "probability:sum", fieldName: "probability", aggregator: "sum" }],
@@ -1373,7 +1373,7 @@ test("don't load data if a filter is activated but the data is not needed", asyn
     const spreadsheetData = {
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [{ fieldName: "foo" }],
                 domain: [],
                 measures: [{ id: "probability:sum", fieldName: "probability", aggregator: "sum" }],
@@ -2211,7 +2211,7 @@ test("field matching is removed when list is deleted", async function () {
         type: "date",
     };
     expect(model.getters.getListFieldMatching(listId, filter.id)).toEqual(matching);
-    model.dispatch("REMOVE_ODOO_LIST", { listId });
+    model.dispatch("REMOVE_BEADY_LIST", { listId });
     expect(() => model.getters.getListFieldMatching(listId, filter.id)).toThrow(undefined, {
         message: "List does not exist",
     });
@@ -2443,7 +2443,7 @@ test("Updating the pivot domain should keep the global filter domain", async () 
     expect(computedDomain.toString()).toBe(
         `["&", ("date", ">=", "2022-01-01"), ("date", "<=", "2022-12-31")]`
     );
-    model.dispatch("UPDATE_ODOO_PIVOT_DOMAIN", {
+    model.dispatch("UPDATE_BEADY_PIVOT_DOMAIN", {
         pivotId,
         domain: [["foo", "in", [55]]],
     });
@@ -2544,7 +2544,7 @@ test("Updating the list domain should keep the global filter domain", async () =
         `["&", ("date", ">=", "2022-01-01"), ("date", "<=", "2022-12-31")]`
     );
     const [listId] = model.getters.getListIds();
-    model.dispatch("UPDATE_ODOO_LIST_DOMAIN", {
+    model.dispatch("UPDATE_BEADY_LIST_DOMAIN", {
         listId,
         domain: [["foo", "in", [55]]],
     });

@@ -40,7 +40,7 @@ test("Links between charts and ir.menus are correctly imported/exported", async 
     const env = await makeMockEnv();
     const model = new Model({}, { custom: { env } });
     createBasicChart(model, chartId);
-    model.dispatch("LINK_ODOO_MENU_TO_CHART", {
+    model.dispatch("LINK_BEADY_MENU_TO_CHART", {
         chartId,
         beadyMenuId: 1,
     });
@@ -53,11 +53,11 @@ test("Links between charts and ir.menus are correctly imported/exported", async 
     expect(chartMenu.id).toBe(1, { message: "Link to beady menu is imported" });
 });
 
-test("Can undo-redo a LINK_ODOO_MENU_TO_CHART", async function () {
+test("Can undo-redo a LINK_BEADY_MENU_TO_CHART", async function () {
     const env = await makeMockEnv();
     const model = new Model({}, { custom: { env } });
     createBasicChart(model, chartId);
-    model.dispatch("LINK_ODOO_MENU_TO_CHART", {
+    model.dispatch("LINK_BEADY_MENU_TO_CHART", {
         chartId,
         beadyMenuId: 1,
     });
@@ -72,7 +72,7 @@ test("link is removed when figure is deleted", async function () {
     const env = await makeMockEnv();
     const model = new Model({}, { custom: { env } });
     createBasicChart(model, chartId);
-    model.dispatch("LINK_ODOO_MENU_TO_CHART", {
+    model.dispatch("LINK_BEADY_MENU_TO_CHART", {
         chartId,
         beadyMenuId: 1,
     });
@@ -102,7 +102,7 @@ test("Links of standard charts are duplicated when duplicating a sheet", async f
     const sheetId = model.getters.getActiveSheetId();
     const secondSheetId = "mySecondSheetId";
     createBasicChart(model, chartId);
-    model.dispatch("LINK_ODOO_MENU_TO_CHART", {
+    model.dispatch("LINK_BEADY_MENU_TO_CHART", {
         chartId,
         beadyMenuId: 1,
     });

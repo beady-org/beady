@@ -35,7 +35,7 @@ class TestRetryCommon(BaseCase):
 
 @tagged('test_retry', 'test_retry_success')
 class TestRetry(TestRetryCommon):
-    """ Check some tests behaviour when ODOO_TEST_FAILURE_RETRIES is set"""
+    """ Check some tests behaviour when BEADY_TEST_FAILURE_RETRIES is set"""
 
     def test_log_levels(self):
         _logger.debug('test debug')

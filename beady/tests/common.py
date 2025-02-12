@@ -292,7 +292,7 @@ class BaseCase(case.TestCase, metaclass=MetaCase):
     warm = True             # False during warm-up phase (see :func:`warmup`)
     _python_version = sys.version_info
 
-    _tests_run_count = int(os.environ.get('ODOO_TEST_FAILURE_RETRIES', 0)) + 1
+    _tests_run_count = int(os.environ.get('BEADY_TEST_FAILURE_RETRIES', 0)) + 1
 
     def __init__(self, methodName='runTest'):
         super().__init__(methodName)
@@ -2075,7 +2075,7 @@ class HttpCase(TransactionCase):
             'keepWatchBrowser': kwargs.get('watch', False),
             'debug': kwargs.get('debug', False),
             'startUrl': url_path,
-            'delayToCheckUndeterminisms': kwargs.pop('delay_to_check_undeterminisms', int(os.getenv("ODOO_TOUR_DELAY_TO_CHECK_UNDETERMINISMS", "0")) or 0),
+            'delayToCheckUndeterminisms': kwargs.pop('delay_to_check_undeterminisms', int(os.getenv("BEADY_TOUR_DELAY_TO_CHECK_UNDETERMINISMS", "0")) or 0),
         }
         code = kwargs.pop('code', f"beady.startTour({tour_name!r}, {json.dumps(options)})")
         ready = kwargs.pop('ready', f"beady.isTourReady({tour_name!r})")

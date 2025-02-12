@@ -19,7 +19,7 @@ export class ChartBeadyMenuPlugin extends BeadyCorePlugin {
      */
     handle(cmd) {
         switch (cmd.type) {
-            case "LINK_ODOO_MENU_TO_CHART":
+            case "LINK_BEADY_MENU_TO_CHART":
                 this.history.update("beadyMenuReference", cmd.chartId, cmd.beadyMenuId);
                 break;
             case "DELETE_FIGURE":
@@ -79,4 +79,4 @@ export class ChartBeadyMenuPlugin extends BeadyCorePlugin {
     }
 }
 
-coreTypes.add("LINK_ODOO_MENU_TO_CHART");
+coreTypes.add("LINK_BEADY_MENU_TO_CHART");

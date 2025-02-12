@@ -26,7 +26,7 @@ MIN_DELTA_BEFORE_DEACTIVATION = timedelta(days=7)
 # crons must satisfy both minimum thresholds before deactivation
 
 # custom function to call instead of default PostgreSQL's `pg_notify`
-ODOO_NOTIFY_FUNCTION = os.getenv('ODOO_NOTIFY_FUNCTION', 'pg_notify')
+BEADY_NOTIFY_FUNCTION = os.getenv('BEADY_NOTIFY_FUNCTION', 'pg_notify')
 
 
 class BadVersion(Exception):
@@ -100,7 +100,7 @@ class ir_cron(models.Model):
     def create(self, vals_list):
         for vals in vals_list:
             vals['usage'] = 'ir_cron'
-        if os.getenv('ODOO_NOTIFY_CRON_CHANGES'):
+        if os.getenv('BEADY_NOTIFY_CRON_CHANGES'):
             self._cr.postcommit.add(self._notifydb)
         return super().create(vals_list)
 
@@ -380,7 +380,7 @@ class ir_cron(models.Model):
             ir_cron._reschedule_later(job)
         elif status == CompletionStatus.PARTIALLY_DONE:
             ir_cron._reschedule_asap(job)
-            if os.getenv('ODOO_NOTIFY_CRON_CHANGES'):
+            if os.getenv('BEADY_NOTIFY_CRON_CHANGES'):
                 cron_cr.postcommit.add(ir_cron._notifydb)  # See: `_notifydb`
         else:
             raise RuntimeError("unreachable")
@@ -608,7 +608,7 @@ class ir_cron(models.Model):
 
     def write(self, vals):
         self._try_lock()
-        if ('nextcall' in vals or vals.get('active')) and os.getenv('ODOO_NOTIFY_CRON_CHANGES'):
+        if ('nextcall' in vals or vals.get('active')) and os.getenv('BEADY_NOTIFY_CRON_CHANGES'):
             self._cr.postcommit.add(self._notifydb)
         return super(ir_cron, self).write(vals)
 
@@ -698,17 +698,17 @@ class ir_cron(models.Model):
             ats = ', '.join(map(str, at_list))
             _logger.debug('Job %r (%s) will execute at %s', self.sudo().name, self.id, ats)
 
-        if min(at_list) <= now or os.getenv('ODOO_NOTIFY_CRON_CHANGES'):
+        if min(at_list) <= now or os.getenv('BEADY_NOTIFY_CRON_CHANGES'):
             self._cr.postcommit.add(self._notifydb)
         return triggers
 
     def _notifydb(self):
         """ Wake up the cron workers
-        The ODOO_NOTIFY_CRON_CHANGES environment variable allows to force the notifydb on both
+        The BEADY_NOTIFY_CRON_CHANGES environment variable allows to force the notifydb on both
         ir_cron modification and on trigger creation (regardless of call_at)
         """
         with beady.sql_db.db_connect('postgres').cursor() as cr:
-            cr.execute(SQL("SELECT %s('cron_trigger', %s)", SQL.identifier(ODOO_NOTIFY_FUNCTION), self.env.cr.dbname))
+            cr.execute(SQL("SELECT %s('cron_trigger', %s)", SQL.identifier(BEADY_NOTIFY_FUNCTION), self.env.cr.dbname))
         _logger.debug("cron workers notified")
 
     def _add_progress(self, *, timed_out_counter=None):

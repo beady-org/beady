@@ -5330,7 +5330,7 @@ msgstr "ما رأيك في هذا الاستطلاع؟ "
 #. module: survey
 #. beady-python
 #: code:beads/survey/models/survey_survey_template.py:0
-msgid "What does \"ODOO\" stand for?"
+msgid "What does \"BEADY\" stand for?"
 msgstr "ما معنى \"أودو\"؟ "
 
 #. module: survey

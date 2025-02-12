@@ -297,7 +297,7 @@ test("user context is combined with pivot context to fetch data", async function
         ],
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [{ fieldName: "foo" }],
                 domain: [],
                 measures: [{ fieldName: "probability" }],
@@ -348,13 +348,13 @@ test("Context is purged from PivotView related keys", async function (assert) {
             {
                 id: "sheet1",
                 cells: {
-                    A1: { content: `=ODOO.PIVOT(1, "probability")` },
+                    A1: { content: `=BEADY.PIVOT(1, "probability")` },
                 },
             },
         ],
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [{ fieldName: "foo" }],
                 rows: [{ fieldName: "bar" }],
                 domain: [],
@@ -402,7 +402,7 @@ test("fetch metadata only once per model", async function () {
         ],
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [{ fieldName: "foo" }],
                 domain: [],
                 measures: [{ id: "probability:sum", fieldName: "probability", aggregator: "sum" }],
@@ -411,7 +411,7 @@ test("fetch metadata only once per model", async function () {
                 context: {},
             },
             2: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [{ fieldName: "bar" }],
                 domain: [],
                 measures: [{ field: "probability", operator: "max" }],
@@ -461,7 +461,7 @@ test("don't fetch pivot data if no formula use it", async function () {
     const spreadsheetData = {
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [{ fieldName: "foo" }],
                 domain: [],
                 measures: [{ id: "probability:sum", fieldName: "probability", aggregator: "sum" }],
@@ -514,7 +514,7 @@ test("evaluates only once when two pivots are loading", async function () {
         sheets: [{ id: "sheet1" }],
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [{ fieldName: "foo" }],
                 domain: [],
                 measures: [{ id: "probability:sum", fieldName: "probability", aggregator: "sum" }],
@@ -522,7 +522,7 @@ test("evaluates only once when two pivots are loading", async function () {
                 rows: [{ fieldName: "bar" }],
             },
             2: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [{ fieldName: "foo" }],
                 domain: [],
                 measures: [{ id: "probability:sum", fieldName: "probability", aggregator: "sum" }],
@@ -553,7 +553,7 @@ test("concurrently load the same pivot twice", async function () {
         sheets: [{ id: "sheet1" }],
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [{ fieldName: "foo" }],
                 domain: [],
                 measures: [{ id: "probability:sum", fieldName: "probability", aggregator: "sum" }],
@@ -590,7 +590,7 @@ test("display loading while data is not fully available", async function () {
         ],
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [{ fieldName: "product_id" }],
                 domain: [],
                 measures: [{ id: "probability:sum", fieldName: "probability", aggregator: "sum" }],
@@ -809,7 +809,7 @@ test("can import/export sorted pivot", async () => {
     const spreadsheetData = {
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [{ fieldName: "foo" }],
                 domain: [],
                 measures: [{ id: "probability:sum", fieldName: "probability", aggregator: "sum" }],
@@ -841,7 +841,7 @@ test("can import (export) contextual domain", async () => {
     const spreadsheetData = {
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [],
                 domain: '[("foo", "=", uid)]',
                 measures: [{ id: "probability:sum", fieldName: "probability", aggregator: "sum" }],
@@ -872,7 +872,7 @@ test("Adding a measure should trigger a reload", async () => {
     const spreadsheetData = {
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [],
                 measures: [{ id: "probability:sum", fieldName: "probability", aggregator: "sum" }],
                 model: "partner",
@@ -922,7 +922,7 @@ test("Updating dimensions with undefined values does not trigger a new rpc", asy
     const spreadsheetData = {
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [{ fieldName: "date" }],
                 measures: [{ id: "probability:sum", fieldName: "probability", aggregator: "sum" }],
                 model: "partner",
@@ -1246,12 +1246,12 @@ test("PIVOT.HEADER formulas are correctly formatted at evaluation", async functi
     expect(getEvaluatedCell(model, "B2").format).toBe(undefined);
 });
 
-test("can edit pivot domain with UPDATE_ODOO_PIVOT_DOMAIN", async () => {
+test("can edit pivot domain with UPDATE_BEADY_PIVOT_DOMAIN", async () => {
     const { model } = await createSpreadsheetWithPivot();
     const [pivotId] = model.getters.getPivotIds();
     expect(model.getters.getPivotCoreDefinition(pivotId).domain).toEqual([]);
     expect(getCellValue(model, "B4")).toBe(11);
-    model.dispatch("UPDATE_ODOO_PIVOT_DOMAIN", {
+    model.dispatch("UPDATE_BEADY_PIVOT_DOMAIN", {
         pivotId,
         domain: [["foo", "in", [55]]],
     });
@@ -1308,7 +1308,7 @@ test("updating a pivot without changing anything rejects the command", async () 
 test("edited domain is exported", async () => {
     const { model } = await createSpreadsheetWithPivot();
     const [pivotId] = model.getters.getPivotIds();
-    model.dispatch("UPDATE_ODOO_PIVOT_DOMAIN", {
+    model.dispatch("UPDATE_BEADY_PIVOT_DOMAIN", {
         pivotId,
         domain: [["foo", "in", [55]]],
     });
@@ -1511,7 +1511,7 @@ test("can import a pivot with a calculated field", async function () {
         ],
         pivots: {
             1: {
-                type: "ODOO",
+                type: "BEADY",
                 columns: [],
                 domain: [],
                 measures: [

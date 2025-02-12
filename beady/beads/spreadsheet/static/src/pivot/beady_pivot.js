@@ -41,8 +41,8 @@ export class BeadyPivot {
      * @param {BeadyGetters} params.getters
      */
     constructor(services, { definition, getters }) {
-        /** @type {"ODOO"} */
-        this.type = "ODOO";
+        /** @type {"BEADY"} */
+        this.type = "BEADY";
 
         /** @type {BeadyPivotCoreDefinition} @protected */
         this.coreDefinition = definition;
@@ -574,7 +574,7 @@ const granularities = [
     "day_of_week",
 ];
 
-pivotRegistry.add("ODOO", {
+pivotRegistry.add("BEADY", {
     ui: BeadyPivot,
     definition: BeadyPivotRuntimeDefinition,
     externalData: true,
@@ -588,4 +588,4 @@ pivotRegistry.add("ODOO", {
     isGroupable: (field) => field.groupable,
 });
 
-supportedPivotPositionalFormulaRegistry.add("ODOO", true);
+supportedPivotPositionalFormulaRegistry.add("BEADY", true);

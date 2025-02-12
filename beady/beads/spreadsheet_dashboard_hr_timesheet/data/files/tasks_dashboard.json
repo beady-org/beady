@@ -729,7 +729,7 @@
   },
   "pivots": {
     "1": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "83b5c62c-1c67-4477-a057-c0ec29edd595": {
           "chain": "date_assign",
@@ -772,7 +772,7 @@
       "rows": [{ "fieldName": "user_ids" }]
     },
     "2": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "83b5c62c-1c67-4477-a057-c0ec29edd595": {
           "chain": "create_date",
@@ -815,7 +815,7 @@
       "rows": [{ "fieldName": "project_id" }]
     },
     "3": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "83b5c62c-1c67-4477-a057-c0ec29edd595": {
           "chain": "create_date",
@@ -858,7 +858,7 @@
       "rows": [{ "fieldName": "tag_ids" }]
     },
     "4": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "83b5c62c-1c67-4477-a057-c0ec29edd595": {
           "chain": "create_date",
@@ -901,7 +901,7 @@
       "rows": [{ "fieldName": "partner_id" }]
     },
     "5": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "83b5c62c-1c67-4477-a057-c0ec29edd595": {
           "chain": "create_date",
@@ -946,7 +946,7 @@
       "rows": []
     },
     "6": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "83b5c62c-1c67-4477-a057-c0ec29edd595": {
           "chain": "create_date",

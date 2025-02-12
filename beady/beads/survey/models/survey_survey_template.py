@@ -113,7 +113,7 @@ class SurveyTemplate(models.Model):
                     'random_questions_count': 2
                 }),
                 (0, 0, { # survey.question
-                    'title': _('What does "ODOO" stand for?'),
+                    'title': _('What does "BEADY" stand for?'),
                     'question_type': 'simple_choice',
                     'suggested_answer_ids': [
                         (0, 0, { # survey.question.answer

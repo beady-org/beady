@@ -8,10 +8,10 @@ defineSpreadsheetModels();
 
 const { CellComposerStore } = stores;
 
-test("ODOO.ACCOUNT.GROUP type", async function () {
+test("BEADY.ACCOUNT.GROUP type", async function () {
     const { store: composer } = await makeStore(CellComposerStore);
 
-    composer.startEdition("=ODOO.ACCOUNT.GROUP(");
+    composer.startEdition("=BEADY.ACCOUNT.GROUP(");
     const autoComplete = composer.autocompleteProvider;
     expect(autoComplete.proposals.map((p) => p.text)).toEqual([
         '"asset_receivable"',
@@ -34,6 +34,6 @@ test("ODOO.ACCOUNT.GROUP type", async function () {
         '"off_balance"',
     ]);
     autoComplete.selectProposal(autoComplete.proposals[0].text);
-    expect(composer.currentContent).toBe('=ODOO.ACCOUNT.GROUP("asset_receivable"');
+    expect(composer.currentContent).toBe('=BEADY.ACCOUNT.GROUP("asset_receivable"');
     expect(composer.autocompleteProvider).toBe(undefined);
 });

@@ -62,22 +62,22 @@ export class ListUIPlugin extends BeadyUIPlugin {
      */
     handle(cmd) {
         switch (cmd.type) {
-            case "INSERT_ODOO_LIST": {
+            case "INSERT_BEADY_LIST": {
                 const { id, linesNumber } = cmd;
                 this._setupListDataSource(id, linesNumber);
                 break;
             }
-            case "INSERT_ODOO_LIST_WITH_TABLE": {
-                this.dispatch("INSERT_ODOO_LIST", cmd);
+            case "INSERT_BEADY_LIST_WITH_TABLE": {
+                this.dispatch("INSERT_BEADY_LIST", cmd);
                 this._addTable(cmd);
                 break;
             }
-            case "RE_INSERT_ODOO_LIST_WITH_TABLE": {
-                this.dispatch("RE_INSERT_ODOO_LIST", cmd);
+            case "RE_INSERT_BEADY_LIST_WITH_TABLE": {
+                this.dispatch("RE_INSERT_BEADY_LIST", cmd);
                 this._addTable(cmd);
                 break;
             }
-            case "DUPLICATE_ODOO_LIST": {
+            case "DUPLICATE_BEADY_LIST": {
                 this._setupListDataSource(cmd.newListId, 0);
                 break;
             }
@@ -91,8 +91,8 @@ export class ListUIPlugin extends BeadyUIPlugin {
             case "CLEAR_GLOBAL_FILTER_VALUE":
                 this._addDomains();
                 break;
-            case "UPDATE_ODOO_LIST":
-            case "UPDATE_ODOO_LIST_DOMAIN": {
+            case "UPDATE_BEADY_LIST":
+            case "UPDATE_BEADY_LIST_DOMAIN": {
                 const listDefinition = this.getters.getListModelDefinition(cmd.listId);
                 const dataSourceId = this._getListDataSourceId(cmd.listId);
                 this.lists[dataSourceId] = new ListDataSource(this.custom, listDefinition);
@@ -122,9 +122,9 @@ export class ListUIPlugin extends BeadyUIPlugin {
 
                 const updateCommands = cmd.commands.filter(
                     (cmd) =>
-                        cmd.type === "UPDATE_ODOO_LIST_DOMAIN" ||
-                        cmd.type === "UPDATE_ODOO_LIST" ||
-                        cmd.type === "INSERT_ODOO_LIST"
+                        cmd.type === "UPDATE_BEADY_LIST_DOMAIN" ||
+                        cmd.type === "UPDATE_BEADY_LIST" ||
+                        cmd.type === "INSERT_BEADY_LIST"
                 );
                 for (const cmd of updateCommands) {
                     if (!this.getters.isExistingList(cmd.listId)) {

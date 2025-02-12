@@ -69,6 +69,6 @@ export const SEE_RECORD_LIST_VISIBLE = (position, getters) => {
         cell &&
         cell.isFormula &&
         getNumberOfListFormulas(cell.compiledFormula.tokens) === 1 &&
-        getFirstListFunction(cell.compiledFormula.tokens).functionName === "ODOO.LIST"
+        getFirstListFunction(cell.compiledFormula.tokens).functionName === "BEADY.LIST"
     );
 };

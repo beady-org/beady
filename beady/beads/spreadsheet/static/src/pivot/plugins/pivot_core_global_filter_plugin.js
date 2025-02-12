@@ -30,7 +30,7 @@ export class PivotCoreGlobalFilterPlugin extends BeadyCorePlugin {
                     .getPivotIds()
                     .filter(
                         (id) =>
-                            this.getters.getPivotCoreDefinition(id).type === "ODOO" &&
+                            this.getters.getPivotCoreDefinition(id).type === "BEADY" &&
                             id in this.pivots
                     ),
             getDisplayName: (pivotId) => this.getters.getPivotName(pivotId),
@@ -38,7 +38,7 @@ export class PivotCoreGlobalFilterPlugin extends BeadyCorePlugin {
             getFieldMatching: (pivotId, filterId) => this.getPivotFieldMatching(pivotId, filterId),
             getModel: (pivotId) => {
                 const pivot = this.getters.getPivotCoreDefinition(pivotId);
-                return pivot.type === "ODOO" && pivot.model;
+                return pivot.type === "BEADY" && pivot.model;
             },
         };
     }
@@ -66,7 +66,7 @@ export class PivotCoreGlobalFilterPlugin extends BeadyCorePlugin {
     handle(cmd) {
         switch (cmd.type) {
             case "ADD_PIVOT": {
-                if (cmd.pivot.type === "ODOO") {
+                if (cmd.pivot.type === "BEADY") {
                     this._addPivot(cmd.pivotId, undefined);
                 }
                 break;
@@ -78,7 +78,7 @@ export class PivotCoreGlobalFilterPlugin extends BeadyCorePlugin {
             case "DUPLICATE_PIVOT": {
                 const { pivotId, newPivotId } = cmd;
                 const pivotDefinition = this.getters.getPivotCoreDefinition(pivotId);
-                if(pivotDefinition.type !== "ODOO") {
+                if(pivotDefinition.type !== "BEADY") {
                     break;
                 }
                 const pivot = deepCopy(this.pivots[pivotId]);
@@ -107,7 +107,7 @@ export class PivotCoreGlobalFilterPlugin extends BeadyCorePlugin {
      */
     getPivotFieldMatch(id) {
         const pivot = this.getters.getPivotCoreDefinition(id);
-        if (pivot.type !== "ODOO") {
+        if (pivot.type !== "BEADY") {
             return {};
         }
         return this.pivots[id].fieldMatching;
@@ -137,7 +137,7 @@ export class PivotCoreGlobalFilterPlugin extends BeadyCorePlugin {
         const pivots = { ...this.pivots };
         for (const [pivotId, fieldMatch] of Object.entries(pivotFieldMatches)) {
             const pivot = this.getters.getPivotCoreDefinition(pivotId);
-            if (pivot.type !== "ODOO") {
+            if (pivot.type !== "BEADY") {
                 continue;
             }
             this.pivots[pivotId].fieldMatching[filterId] = fieldMatch;
@@ -158,7 +158,7 @@ export class PivotCoreGlobalFilterPlugin extends BeadyCorePlugin {
      */
     _addPivot(id, fieldMatching = undefined) {
         const pivot = this.getters.getPivotCoreDefinition(id);
-        if (pivot.type === "ODOO") {
+        if (pivot.type === "BEADY") {
             const pivots = { ...this.pivots };
             const model = pivot.model;
             pivots[id] = {
@@ -194,7 +194,7 @@ export class PivotCoreGlobalFilterPlugin extends BeadyCorePlugin {
         for (const id in this.pivots) {
             const pivot = this.getters.getPivotCoreDefinition(id);
             data.pivots[id].fieldMatching =
-                pivot.type === "ODOO" ? this.pivots[id].fieldMatching : {};
+                pivot.type === "BEADY" ? this.pivots[id].fieldMatching : {};
         }
     }
 }

@@ -37,7 +37,7 @@ test("Invalid pivot/list formulas should not be clickable", async () => {
             {
                 cells: {
                     A1: { content: `=PIVOT.VALUE("1", "measure")` },
-                    A2: { content: `=ODOO.LIST("1", 1, "name")` },
+                    A2: { content: `=BEADY.LIST("1", 1, "name")` },
                 },
             },
         ],
@@ -53,7 +53,7 @@ test("pivot/list formulas should be clickable", async () => {
             {
                 cells: {
                     A1: { content: `=PIVOT.VALUE("1", "probability", "bar", "false")` },
-                    A2: { content: `=ODOO.LIST(1, 1, "foo")` },
+                    A2: { content: `=BEADY.LIST(1, 1, "foo")` },
                 },
             },
         ],

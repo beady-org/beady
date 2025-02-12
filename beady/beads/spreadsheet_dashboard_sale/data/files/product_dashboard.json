@@ -503,7 +503,7 @@
   },
   "pivots": {
     "1": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "a6c3274b-e53c-4c6b-90a8-bc3e3d109f52": {
           "chain": "date",
@@ -539,7 +539,7 @@
       "rows": [{ "fieldName": "product_id" }]
     },
     "2": {
-      "type": "ODOO",
+      "type": "BEADY",
       "fieldMatching": {
         "a6c3274b-e53c-4c6b-90a8-bc3e3d109f52": {
           "chain": "date",

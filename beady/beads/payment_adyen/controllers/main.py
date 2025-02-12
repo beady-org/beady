@@ -43,7 +43,7 @@ class AdyenController(http.Controller):
         # match in https://docs.adyen.com/checkout/components-web/localization-components, we simply
         # provide the lang string as is (after adapting the format) and let Adyen find the best fit.
         lang_code = py_to_js_locale(request.context.get('lang')) or 'en-US'
-        shopper_reference = partner_sudo and f'ODOO_PARTNER_{partner_sudo.id}'
+        shopper_reference = partner_sudo and f'BEADY_PARTNER_{partner_sudo.id}'
         data = {
             'merchantAccount': provider_sudo.adyen_merchant_account,
             'amount': formatted_amount,

@@ -12,7 +12,7 @@ declare module "@spreadsheet" {
     }
 
     export interface BeadyPivotCoreDefinition extends CommonPivotCoreDefinition {
-        type: "ODOO";
+        type: "BEADY";
         model: string;
         domain: Array;
         context: Object;

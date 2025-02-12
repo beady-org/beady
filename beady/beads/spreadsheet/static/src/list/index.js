@@ -19,19 +19,19 @@ const { coreTypes, invalidateEvaluationCommands } = spreadsheet;
 
 const { cellMenuRegistry } = spreadsheet.registries;
 
-coreTypes.add("INSERT_ODOO_LIST");
-coreTypes.add("RENAME_ODOO_LIST");
-coreTypes.add("REMOVE_ODOO_LIST");
-coreTypes.add("RE_INSERT_ODOO_LIST");
-coreTypes.add("UPDATE_ODOO_LIST_DOMAIN");
-coreTypes.add("UPDATE_ODOO_LIST");
+coreTypes.add("INSERT_BEADY_LIST");
+coreTypes.add("RENAME_BEADY_LIST");
+coreTypes.add("REMOVE_BEADY_LIST");
+coreTypes.add("RE_INSERT_BEADY_LIST");
+coreTypes.add("UPDATE_BEADY_LIST_DOMAIN");
+coreTypes.add("UPDATE_BEADY_LIST");
 coreTypes.add("ADD_LIST_DOMAIN");
-coreTypes.add("DUPLICATE_ODOO_LIST");
+coreTypes.add("DUPLICATE_BEADY_LIST");
 
-invalidateEvaluationCommands.add("UPDATE_ODOO_LIST_DOMAIN");
-invalidateEvaluationCommands.add("UPDATE_ODOO_LIST");
-invalidateEvaluationCommands.add("INSERT_ODOO_LIST");
-invalidateEvaluationCommands.add("REMOVE_ODOO_LIST");
+invalidateEvaluationCommands.add("UPDATE_BEADY_LIST_DOMAIN");
+invalidateEvaluationCommands.add("UPDATE_BEADY_LIST");
+invalidateEvaluationCommands.add("INSERT_BEADY_LIST");
+invalidateEvaluationCommands.add("REMOVE_BEADY_LIST");
 
 cellMenuRegistry.add(
     "list_see_record",
@@ -51,11 +51,11 @@ cellMenuRegistry.add(
 );
 
 inverseCommandRegistry
-    .add("INSERT_ODOO_LIST", identity)
-    .add("UPDATE_ODOO_LIST_DOMAIN", identity)
-    .add("UPDATE_ODOO_LIST", identity)
-    .add("RE_INSERT_ODOO_LIST", identity)
-    .add("RENAME_ODOO_LIST", identity)
-    .add("REMOVE_ODOO_LIST", identity);
+    .add("INSERT_BEADY_LIST", identity)
+    .add("UPDATE_BEADY_LIST_DOMAIN", identity)
+    .add("UPDATE_BEADY_LIST", identity)
+    .add("RE_INSERT_BEADY_LIST", identity)
+    .add("RENAME_BEADY_LIST", identity)
+    .add("REMOVE_BEADY_LIST", identity);
 
 export { ListCorePlugin, ListUIPlugin };

@@ -28,18 +28,18 @@ create_partition () {
         exit 0
     fi
 
-    PART_ODOO_ROOT=$(fdisk -l | tail -n 1 | awk '{print $1}')
-    START_OF_ODOO_ROOT_PARTITION=$(fdisk -l | tail -n 1 | awk '{print $2}')
-    END_OF_ODOO_ROOT_PARTITION=$((START_OF_ODOO_ROOT_PARTITION + 11714061)) # sectors to have a partition of ~5.6Go
-    START_OF_UPGRADE_ROOT_PARTITION=$((END_OF_ODOO_ROOT_PARTITION + 1)) # sectors to have a partition of ~7.0Go
+    PART_BEADY_ROOT=$(fdisk -l | tail -n 1 | awk '{print $1}')
+    START_OF_BEADY_ROOT_PARTITION=$(fdisk -l | tail -n 1 | awk '{print $2}')
+    END_OF_BEADY_ROOT_PARTITION=$((START_OF_BEADY_ROOT_PARTITION + 11714061)) # sectors to have a partition of ~5.6Go
+    START_OF_UPGRADE_ROOT_PARTITION=$((END_OF_BEADY_ROOT_PARTITION + 1)) # sectors to have a partition of ~7.0Go
     (echo 'p';                                  # print
      echo 'd';                                  # delete partition
      echo '2';                                  #   number 2
      echo 'n';                                  # create new partition
      echo 'p';                                  #   primary
      echo '2';                                  #   number 2
-     echo "${START_OF_ODOO_ROOT_PARTITION}";    #   starting at previous offset
-     echo "${END_OF_ODOO_ROOT_PARTITION}";      #   ending at ~9.9Go
+     echo "${START_OF_BEADY_ROOT_PARTITION}";    #   starting at previous offset
+     echo "${END_OF_BEADY_ROOT_PARTITION}";      #   ending at ~9.9Go
      echo 'n';                                  # create new partition
      echo 'p';                                  #   primary
      echo '3';                                  #   number 3
@@ -54,7 +54,7 @@ create_partition () {
     # Clean partition
     mount -o remount,rw /
     partprobe # apply changes to partitions
-    resize2fs "${PART_ODOO_ROOT}"
+    resize2fs "${PART_BEADY_ROOT}"
     mkfs.ext4 -Fv "${PART_RASPIOS_ROOT}" # change file sytstem
 
     echo "end fdisking"
@@ -90,7 +90,7 @@ copy_raspios () {
 
     # mapper raspios
     PART_RASPIOS_ROOT=$(fdisk -l | tail -n 1 | awk '{print $1}')
-    PART_ODOO_ROOT=$(fdisk -l | tail -n 2 | awk 'NR==1 {print $1}')
+    PART_BEADY_ROOT=$(fdisk -l | tail -n 2 | awk 'NR==1 {print $1}')
     PART_BOOT=$(fdisk -l | tail -n 3 | awk 'NR==1 {print $1}')
     RASPIOS=$(echo *raspios*.img)
     LOOP_RASPIOS=$(kpartx -avs "${RASPIOS}")
@@ -115,7 +115,7 @@ copy_raspios () {
     NBR_LIGNE=$(sed -n -e '$=' raspios/etc/rc.local)
     sed -ie "${NBR_LIGNE}"'i\. /home/pi/upgrade.sh; copy_iot' raspios/etc/rc.local
     cp -v /etc/fstab raspios/etc/fstab
-    sed -ie "s/$(echo ${PART_ODOO_ROOT} | sed -e 's/\//\\\//g')/$(echo ${PART_RASPIOS_ROOT} | sed -e 's/\//\\\//g')/g" raspios/etc/fstab
+    sed -ie "s/$(echo ${PART_BEADY_ROOT} | sed -e 's/\//\\\//g')/$(echo ${PART_RASPIOS_ROOT} | sed -e 's/\//\\\//g')/g" raspios/etc/fstab
     mkdir raspios/home/pi/config
     find /home/pi -maxdepth 1 -type f ! -name ".*" -exec cp {} raspios/home/pi/config/ \;
 

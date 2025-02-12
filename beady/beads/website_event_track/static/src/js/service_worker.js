@@ -9,7 +9,7 @@ const CACHABLE_ROUTES = ["/web/webclient/version_info"];
 const MAX_CACHE_SIZE = 512 * 1024 * 1024; // 500 MB
 const MAX_CACHE_QUOTA = 0.5;
 // eslint-disable-next-line no-undef
-const CDN_URL = __ODOO_CDN_URL__; // {string|undefined} the cdn_url configured for the website if activated
+const CDN_URL = __BEADY_CDN_URL__; // {string|undefined} the cdn_url configured for the website if activated
 
 const { Store, set, get } = idbKeyval;
 const pendingRequestsQueueName = `${PREFIX}-pending-requests`;
