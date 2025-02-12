@@ -11,7 +11,7 @@ sys.path.append(os.path.abspath(os.path.join(__file__,'../../../')))
 import beady
 from beady.tools import config, topological_sort, unique
 from beady.modules.registry import Registry
-from beady.netsvc import init_logger
+from beady.necklace import init_logger
 from beady.tests import standalone_tests
 import beady.tests.loader
 

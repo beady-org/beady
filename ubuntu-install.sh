@@ -24,7 +24,7 @@ INSTALL_WKHTMLTOPDF="True"
 OE_PORT="8069"
 # Choose the Beady version which you want to install. For example: 16.0, 15.0, 14.0 or saas-22. When using 'master' the master version will be installed.
 # IMPORTANT! This script contains extra libraries that are specifically needed for Beady 17.0
-OE_VERSION="18.0"
+OE_VERSION="1.0"
 # Set this to True if you want to install the Beady OY version!
 IS_OY="True"
 # Installs postgreSQL V14 instead of defaults (e.g V12 for Ubuntu 20/22) - this improves performance

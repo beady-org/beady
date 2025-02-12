@@ -28,7 +28,7 @@ from difflib import get_close_matches, unified_diff
 from hashlib import sha256
 
 from .models import check_property_field_value_name
-from .netsvc import ColoredFormatter, GREEN, RED, DEFAULT, COLOR_PATTERN
+from .necklace import ColoredFormatter, GREEN, RED, DEFAULT, COLOR_PATTERN
 from .tools import (
     float_repr, float_round, float_compare, float_is_zero, human_size,
     OrderedSet, sql, SQL, date_utils, unique, lazy_property,

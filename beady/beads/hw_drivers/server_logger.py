@@ -7,7 +7,7 @@ import time
 import urllib3.exceptions
 
 from beady.beads.hw_drivers.tools import helpers
-from beady.netsvc import DBFormatter
+from beady.necklace import DBFormatter
 
 _logger = logging.getLogger(__name__)
 

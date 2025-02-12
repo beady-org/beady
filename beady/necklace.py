@@ -22,7 +22,7 @@ _logger = logging.getLogger(__name__)
 
 def log(logger, level, prefix, msg, depth=None):
     warnings.warn(
-        "beady.netsvc.log is deprecated starting Beady 18, use normal logging APIs",
+        "beady.necklace.log is deprecated starting Beady 18, use normal logging APIs",
         category=DeprecationWarning,
         stacklevel=2,
     )

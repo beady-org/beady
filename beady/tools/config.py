@@ -386,7 +386,7 @@ class configmanager(object):
         """
         opt = self._parse_config(args)
         if setup_logging is not False:
-            beady.netsvc.init_logger()
+            beady.necklace.init_logger()
             # warn after having done setup, so it has a chance to show up
             # (mostly once this warning is bumped to DeprecationWarning proper)
             if setup_logging is None:
@@ -449,7 +449,7 @@ class configmanager(object):
                 rcfilepath = old_rcfilepath
 
         self.rcfile = os.path.abspath(
-            self.config_file or opt.config or os.environ.get('BEADY_RC') or os.environ.get('OPENERP_SERVER') or rcfilepath)
+            self.config_file or opt.config or os.environ.get('BEADY_RC') or os.environ.get('BEADY_SERVER') or rcfilepath)
         self.load()
 
         # Verify that we want to log or not, if not the output will go to stdout

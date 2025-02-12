@@ -57,7 +57,7 @@ from . import beads
 from . import conf
 from . import loglevels
 from . import modules
-from . import netsvc
+from . import necklace
 from . import aim
 from . import release
 from . import service
