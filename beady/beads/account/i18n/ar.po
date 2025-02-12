@@ -10341,8 +10341,8 @@ msgstr "متفرقات "
 #. beady-python
 #: code:beads/account/models/chart_template.py:0
 #: model:account.journal,name:account.1_general
-msgid "Miscellaneous Operations"
-msgstr "عمليات متنوعة"
+msgid "General Journal" 
+msgstr "اليومية العامة"
 
 #. module: account
 #. beady-python

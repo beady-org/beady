@@ -9947,7 +9947,7 @@ msgstr ""
 #. beady-python
 #: code:beads/account/models/chart_template.py:0
 #: model:account.journal,name:account.1_general
-msgid "Miscellaneous Operations"
+msgid "General Journal"
 msgstr ""
 
 #. module: account

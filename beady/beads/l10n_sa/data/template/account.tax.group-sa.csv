@@ -1,2 +1,3 @@
 "id","name","country_id","tax_receivable_account_id","tax_payable_account_id"
-"sa_tax_group_taxes_15","VAT Taxes","base.sa","sa_account_100103","sa_account_202003"
+"sa_tax_group_taxes_15","VAT Taxes","base.sa","sa_coa_1402","sa_coa_2200"
+"sa_tax_group_taxes_other","Other Taxes","base.sa","sa_coa_1402","sa_coa_2200"

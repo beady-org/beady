@@ -2,20 +2,19 @@
 
 import ast
 import csv
-from collections import defaultdict
-from functools import wraps
-from inspect import getmembers
-from copy import deepcopy
-
 import logging
 import re
+from collections import defaultdict
+from copy import deepcopy
+from functools import wraps
+from inspect import getmembers
 
 from beady import Command, api, models
 from beady.beads.base.models.ir_model import MODULE_UNINSTALL_FLAG
 from beady.exceptions import AccessError, UserError
 from beady.modules import get_resource_from_path
-from beady.tools import file_open, float_compare, get_lang, groupby, SQL
-from beady.tools.translate import _, code_translations, TranslationImporter
+from beady.tools import SQL, file_open, float_compare, get_lang, groupby
+from beady.tools.translate import TranslationImporter, _, code_translations
 
 _logger = logging.getLogger(__name__)
 
@@ -752,39 +751,34 @@ class AccountChartTemplate(models.AbstractModel):
         accounts_data = {
             'account_journal_suspense_account_id': {
                 'name': _("Bank Suspense Account"),
-                'prefix': bank_prefix,
-                'code_digits': code_digits,
+                'code': '1398',
                 'account_type': 'asset_current',
             },
             'account_journal_early_pay_discount_loss_account_id': {
                 'name': _("Cash Discount Loss"),
-                'code': '999998',
+                'code': '5798',
                 'account_type': 'expense',
             },
             'account_journal_early_pay_discount_gain_account_id': {
                 'name': _("Cash Discount Gain"),
-                'code': '999997',
+                'code': '4498',
                 'account_type': 'income_other',
             },
             'default_cash_difference_income_account_id': {
                 'name': _("Cash Difference Gain"),
-                'prefix': '999',
-                'code_digits': code_digits,
+                'code': '4499',
                 'account_type': 'income_other',
                 'tag_ids': [(6, 0, self.ref('account.account_tag_investing').ids)],
             },
             'default_cash_difference_expense_account_id': {
                 'name': _("Cash Difference Loss"),
-                'prefix': '999',
-                'code_digits': code_digits,
+                'code': '5799',
                 'account_type': 'expense',
                 'tag_ids': [(6, 0, self.ref('account.account_tag_investing').ids)],
             },
             'transfer_account_id': {
                 'name': _("Liquidity Transfer"),
-                'prefix': company.transfer_account_code_prefix,
-                'code_digits': code_digits,
-                'account_type': 'asset_current',
+                'code': '1399',
                 'reconcile': True,
             },
         }
@@ -1038,11 +1032,11 @@ class AccountChartTemplate(models.AbstractModel):
                 'sequence': 6,
             },
             "general": {
-                'name': _('Miscellaneous Operations'),
+                'name': _('General Journal'),
                 'type': 'general',
-                'code': _('MISC'),
-                'show_on_dashboard': False,
-                'sequence': 9,
+                'code': _('GJ'),
+                'show_on_dashboard': True,
+                'sequence': 1,
             },
             "exch": {
                 'name': _('Exchange Difference'),
