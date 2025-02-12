@@ -49,7 +49,7 @@ registry.category("web_tour.tours").add('website_crm_tour', {
 }, {
     content: "Complete Company",
     trigger: "input[name=partner_name]",
-    run: "edit Beady S.A.",
+    run: "edit Beady.org",
 }, {
     content: "Complete Subject",
     trigger: "input[name=name]",

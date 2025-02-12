@@ -44,7 +44,7 @@ _DEFAULT_MANIFEST = {
     'application': False,
     'bootstrap': False,  # web
     'assets': {},
-    'author': 'Beady S.A.',
+    'author': 'Beady.org',
     'auto_install': False,
     'category': 'Uncategorized',
     'cloc_exclude': [],

@@ -37,14 +37,14 @@ class AccountChartTemplate(models.AbstractModel):
         """ If Saudi Arabia chart, we add 3 new journals Tax Adjustments, IFRS 16 and Zakat"""
         return {
             "tax_adjustment": {
-                'name': 'Tax Adjustments',
-                'code': 'TA',
+                'name': 'General Journal',
+                'code': 'GJ',
                 'type': 'general',
                 'show_on_dashboard': True,
                 'sequence': 1,
             },
             "ifrs16": {
-                'name': 'IFRS 16 Right of Use Asset',
+                'name': 'Fixid Assets',
                 'code': 'IFRS',
                 'type': 'general',
                 'show_on_dashboard': True,

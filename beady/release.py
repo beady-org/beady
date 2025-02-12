@@ -30,7 +30,7 @@ License :: OSI Approved :: GNU Lesser General Public License v3
 Programming Language :: Python
 """
 url = 'https://www.beady.org'
-author = 'Beady S.A.'
+author = 'Beady.org'
 author_email = 'info.beady.org'
 license = 'LGPL-3'
 

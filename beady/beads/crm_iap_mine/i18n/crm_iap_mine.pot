@@ -36,7 +36,7 @@ msgid ""
 "    <p>There are no more credits on your IAP Lead Generation account.<br/>\n"
 "    You can charge your IAP Lead Generation account in the settings of the CRM app.<br/></p>\n"
 "    <p>Best regards,</p>\n"
-"    <p>Beady S.A.</p>\n"
+"    <p>Beady.org</p>\n"
 "</div>"
 msgstr ""
 

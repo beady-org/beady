@@ -38,7 +38,7 @@ class TestModuleManifest(BaseCase):
             'beads_path': self.beads_path,
             'application': False,
             'assets': {},
-            'author': 'Beady S.A.',
+            'author': 'Beady.org',
             'auto_install': False,
             'bootstrap': False,
             'category': 'Uncategorized',

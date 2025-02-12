@@ -7,7 +7,7 @@
     'sequence': 350,
     'summary': "A Dutch payment provider covering several European countries.",
     'description': " ",  # Non-empty string to avoid loading the README file.
-    'author': 'Beady S.A., Applix BV, Droggol Infotech Pvt. Ltd.',
+    'author': 'Beady.org, Applix BV, Droggol Infotech Pvt. Ltd.',
     'website': 'https://www.mollie.com',
     'depends': ['payment'],
     'data': [

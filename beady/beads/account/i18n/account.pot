@@ -3442,7 +3442,7 @@ msgstr ""
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_default_terms_and_conditions
 msgid ""
-"Below text serves as a suggestion and doesn’t engage Beady S.A. "
+"Below text serves as a suggestion and doesn’t engage Beady.org "
 "responsibility."
 msgstr ""
 

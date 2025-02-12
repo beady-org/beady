@@ -4812,7 +4812,7 @@ msgstr ""
 #. beady-javascript
 #: code:beads/web/static/src/core/install_scoped_app/install_scoped_app.xml:0
 #: code:beads/web/static/src/webclient/settings_form_view/widgets/res_config_edition.xml:0
-msgid "Beady S.A."
+msgid "Beady.org"
 msgstr "أودو S.A. "
 
 #. module: web

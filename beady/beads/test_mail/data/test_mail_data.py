@@ -755,7 +755,7 @@ Résultat de recherche d'images pour "dessin la princesse au petit pois"
 --
 Soup
 
-Beady S.A.
+Beady.org
 Chaussée de Namur, 40
 B-1367 Grand Rosière
 Web: http://www.beady.org
@@ -778,7 +778,7 @@ src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjCNAadd3NDM8g9w0P_-g
     <pre class="moz-signature" cols="72">--
 Soup
 
-Beady S.A.
+Beady.org
 Chaussée de Namur, 40
 B-1367 Grand Rosière
 Web: <a class="moz-txt-link-freetext" href="http://www.beady.org">http://www.beady.org</a> </pre>

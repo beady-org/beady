@@ -4,7 +4,7 @@
     'icon': '/account/static/description/l10n.png',
     'countries': ['sa'],
     'version': '2.0',
-    'author': 'Beady S.A., DVIT.ME (http://www.dvit.me)',
+    'author': 'Beady.org, DVIT.ME (http://www.dvit.me)',
     'category': 'Accounting/Localizations/Account Charts',
     'description': """
 Beady Arabic localization for most Saudi Arabia.
@@ -17,7 +17,6 @@ Beady Arabic localization for most Saudi Arabia.
     'auto_install': ['account'],
     'data': [
         'data/account_data.xml',
-        'data/account_tax_report_data.xml',
         'views/report_invoice.xml',
     ],
     'demo': [
