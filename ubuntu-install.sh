@@ -25,7 +25,7 @@ OE_PORT="8069"
 # Installs postgreSQL V14 instead of defaults (e.g V12 for Ubuntu 20/22) - this improves performance
 INSTALL_POSTGRESQL_FOURTEEN="True"
 # Set this to True if you want to install Nginx!
-INSTALL_NGINX="False"
+INSTALL_NGINX="True"
 # Set the superadmin password - if GENERATE_RANDOM_PASSWORD is set to "True" we will automatically generate a random password, otherwise we use this one
 OE_SUPERADMIN="admin"
 # Set to "True" to generate a random password, "False" to use the variable in OE_SUPERADMIN
@@ -61,13 +61,9 @@ fi
 echo -e "\n---- Update Server ----"
 # universe package is for Ubuntu 18.x
 # libpng12-0 dependency for wkhtmltopdf for older Ubuntu versions
-# sudo add-apt-repository "deb http://mirrors.kernel.org/ubuntu/ xenial main"
-sudo add-apt-repository universe
+sudo add-apt-repository "deb http://mirrors.kernel.org/ubuntu/ xenial main"
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo ufw allow $OE_PORT
-sudo ufw allow $LONGPOLLING_PORT
-sudo ufw allow 80
 sudo apt-get install libpq-dev
 
 #--------------------------------------------------
@@ -172,7 +168,7 @@ fi
 sudo su root -c "printf 'admin_passwd = ${OE_SUPERADMIN}\n' >> /etc/${OE_CONFIG}.conf"
 sudo su root -c "printf 'xmlrpc_port = ${OE_PORT}\n' >> /etc/${OE_CONFIG}.conf"
 sudo su root -c "printf 'logfile = /var/log/${OE_USER}/${OE_CONFIG}.log\n' >> /etc/${OE_CONFIG}.conf"
-sudo su root -c "printf 'beads_path=${OE_HOME_EXT}/beads,${OE_HOME}/custom/beads\n' >> /etc/${OE_CONFIG}.conf"
+sudo su root -c "printf 'beads_path=${OE_HOME_EXT}/beady/beads,${OE_HOME}/custom/beads\n' >> /etc/${OE_CONFIG}.conf"
 sudo chown $OE_USER:$OE_USER /etc/${OE_CONFIG}.conf
 sudo chmod 640 /etc/${OE_CONFIG}.conf
 
@@ -384,7 +380,7 @@ echo "Configuraton file location: /etc/${OE_CONFIG}.conf"
 echo "Logfile location: /var/log/$OE_USER"
 echo "User PostgreSQL: $OE_USER"
 echo "Code location: $OE_USER"
-echo "Beads folder: $OE_USER/$OE_CONFIG/beads/"
+echo "Beads folder: $OE_USER/$OE_CONFIG/beady/beads/"
 echo "Password superadmin (database): $OE_SUPERADMIN"
 echo "Start Beady service: sudo service $OE_CONFIG start"
 echo "Stop Beady service: sudo service $OE_CONFIG stop"
