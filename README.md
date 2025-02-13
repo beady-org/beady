@@ -16,5 +16,5 @@ By adopting Beady, businesses can streamline their **software development proces
 ```sh
 wget https://raw.githubusercontent.com/beady-org/beady/refs/heads/main/ubuntu-install.sh
 sudo chmod +x ubuntu-install.sh
-./ubuntu-install
+./ubuntu-install.sh
 ```

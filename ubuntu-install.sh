@@ -11,7 +11,7 @@
 # Place this content in it and then make the file executable:
 # sudo chmod +x ubuntu-install.sh
 # Execute the script to install Beady:
-# ./ubuntu-install
+# ./ubuntu-install.sh
 ################################################################################
 
 OE_USER="beady"
@@ -22,11 +22,6 @@ OE_HOME_EXT="/$OE_USER/${OE_USER}-server"
 INSTALL_WKHTMLTOPDF="True"
 # Set the default Beady port (you still have to use -c /etc/beady-server.conf for example to use this.)
 OE_PORT="8069"
-# Choose the Beady version which you want to install. For example: 16.0, 15.0, 14.0 or saas-22. When using 'master' the master version will be installed.
-# IMPORTANT! This script contains extra libraries that are specifically needed for Beady 17.0
-OE_VERSION="1.0"
-# Set this to True if you want to install the Beady OY version!
-IS_OY="True"
 # Installs postgreSQL V14 instead of defaults (e.g V12 for Ubuntu 20/22) - this improves performance
 INSTALL_POSTGRESQL_FOURTEEN="True"
 # Set this to True if you want to install Nginx!
@@ -43,7 +38,7 @@ LONGPOLLING_PORT="8072"
 # Set to "True" to install certbot and have ssl enabled, "False" to use http
 ENABLE_SSL="True"
 # Provide Email to register ssl certificate
-ADMIN_EMAIL="beady@example.com"
+ADMIN_EMAIL="info@beady.org"
 ##
 ###  WKHTMLTOPDF download links
 ## === Ubuntu Trusty x64 & x32 === (for other distributions please replace these two links,
@@ -65,11 +60,14 @@ fi
 #--------------------------------------------------
 echo -e "\n---- Update Server ----"
 # universe package is for Ubuntu 18.x
-# sudo add-apt-repository universe
 # libpng12-0 dependency for wkhtmltopdf for older Ubuntu versions
 # sudo add-apt-repository "deb http://mirrors.kernel.org/ubuntu/ xenial main"
+sudo add-apt-repository universe
 sudo apt-get update
 sudo apt-get upgrade -y
+sudo ufw allow $OE_PORT
+sudo ufw allow $LONGPOLLING_PORT
+sudo ufw allow 80
 sudo apt-get install libpq-dev
 
 #--------------------------------------------------
@@ -147,31 +145,13 @@ sudo chown $OE_USER:$OE_USER /var/log/$OE_USER
 #--------------------------------------------------
 echo -e "\n==== Installing BEADY Server ===="
 sudo git clone https://github.com/beady-org/beady.git $OE_HOME_EXT/
-
-if [ $IS_OY = "True" ]; then
-    # Beady OY install!
-    sudo pip3 install psycopg2-binary pdfminer.six
-    echo -e "\n--- Create symlink for node"
-    sudo ln -s /usr/bin/nodejs /usr/bin/node
-    sudo su $OE_USER -c "mkdir $OE_HOME/oy"
-
-    GITHUB_RESPONSE=$(sudo git clone https://github.com/beady-org/oy.git "$OE_HOME/oy" 2>&1)
-    while [[ $GITHUB_RESPONSE == *"Authentication"* ]]; do
-        echo "------------------------WARNING------------------------------"
-        echo "Your authentication with Github has failed! Please try again."
-        printf "In order to clone and install the Beady OY version you \nneed to be an offical Beady partner and you need access to\nhttp://github.com/beady/OY.\n"
-        echo "TIP: Press ctrl+c to stop this script."
-        echo "-------------------------------------------------------------"
-        echo " "
-        GITHUB_RESPONSE=$(sudo git clone https://github.com/beady-org/oy.git "$OE_HOME/oy" 2>&1)
-    done
-
-    echo -e "\n---- Added OY code under $OE_HOME/oy----"
-    echo -e "\n---- Installing OY specific libraries ----"
-    sudo -H pip3 install num2words ofxparse dbfread ebaysdk firebase_admin pyOpenSSL
-    sudo npm install -g less
-    sudo npm install -g less-plugin-clean-css
-fi
+sudo pip3 install psycopg2-binary pdfminer.six
+echo -e "\n--- Create symlink for node"
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+echo -e "\n---- Installing More BEADY specific libraries ----"
+sudo -H pip3 install num2words ofxparse dbfread ebaysdk firebase_admin pyOpenSSL
+sudo npm install -g less
+sudo npm install -g less-plugin-clean-css
 
 echo -e "\n---- Create custom module directory ----"
 sudo su $OE_USER -c "mkdir $OE_HOME/custom"
@@ -190,18 +170,9 @@ if [ $GENERATE_RANDOM_PASSWORD = "True" ]; then
     OE_SUPERADMIN=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1)
 fi
 sudo su root -c "printf 'admin_passwd = ${OE_SUPERADMIN}\n' >> /etc/${OE_CONFIG}.conf"
-if [ $OE_VERSION > "11.0" ];then
-    sudo su root -c "printf 'http_port = ${OE_PORT}\n' >> /etc/${OE_CONFIG}.conf"
-else
-    sudo su root -c "printf 'xmlrpc_port = ${OE_PORT}\n' >> /etc/${OE_CONFIG}.conf"
-fi
+sudo su root -c "printf 'xmlrpc_port = ${OE_PORT}\n' >> /etc/${OE_CONFIG}.conf"
 sudo su root -c "printf 'logfile = /var/log/${OE_USER}/${OE_CONFIG}.log\n' >> /etc/${OE_CONFIG}.conf"
-
-if [ $IS_OY = "True" ]; then
-    sudo su root -c "printf 'addons_path=${OE_HOME}/oy,${OE_HOME_EXT}/addons\n' >> /etc/${OE_CONFIG}.conf"
-else
-    sudo su root -c "printf 'addons_path=${OE_HOME_EXT}/addons,${OE_HOME}/custom/addons\n' >> /etc/${OE_CONFIG}.conf"
-fi
+sudo su root -c "printf 'beads_path=${OE_HOME_EXT}/beads,${OE_HOME}/custom/beads\n' >> /etc/${OE_CONFIG}.conf"
 sudo chown $OE_USER:$OE_USER /etc/${OE_CONFIG}.conf
 sudo chmod 640 /etc/${OE_CONFIG}.conf
 
@@ -413,7 +384,7 @@ echo "Configuraton file location: /etc/${OE_CONFIG}.conf"
 echo "Logfile location: /var/log/$OE_USER"
 echo "User PostgreSQL: $OE_USER"
 echo "Code location: $OE_USER"
-echo "Addons folder: $OE_USER/$OE_CONFIG/addons/"
+echo "Beads folder: $OE_USER/$OE_CONFIG/beads/"
 echo "Password superadmin (database): $OE_SUPERADMIN"
 echo "Start Beady service: sudo service $OE_CONFIG start"
 echo "Stop Beady service: sudo service $OE_CONFIG stop"
