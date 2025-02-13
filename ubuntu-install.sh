@@ -1,7 +1,7 @@
 #!/bin/bash
 ################################################################################
 # Script for installing Beady on Ubuntu 24
-# Author: Mohamed Elbeadyoury (https://beadyoury.com)
+# Author: Mohamed Elbagoury (https://bagoury.com)
 ################################################################################
 
 OE_USER="beady"
