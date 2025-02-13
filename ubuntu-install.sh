@@ -37,14 +37,17 @@ fi
 
 # Install Dependencies
 echo -e "\n--- Installing Python 3 + pip3 --"
-ssudo apt install build-essential wget git python3 python3-pip python3-dev python3-venv python3-wheel  libfreetype6-dev libxml2-dev libzip-dev libsasl2-dev python3-setuptools libjpeg-dev zlib1g-dev libpq-dev libxslt1-dev libldap2-dev libtiff5-dev libopenjp2-7-dev -y
+sudo apt install -y python3 python3-pip python3-venv python3-wheel python3 libfreetype6-dev python3-dev build-essential \
+    libxslt-dev python3-setuptools libzip-dev libldap2-dev libsasl2-dev libpq-dev \
+    nodejs npm libpng-dev libjpeg-dev git wget curl
 
 echo -e "\n---- Install python packages/requirements ----"
 sudo -H pip install -r https://raw.githubusercontent.com/beady-org/beady/refs/heads/main/requirements.txt
 
 echo -e "\n---- Installing nodeJS NPM and rtlcss for LTR support ----"
 sudo apt-get install nodejs npm -y
-sudo npm install -g rtlcss
+sudo npm install -g rtlcss less less-plugin-clean-css
+sudo apt-get install node-less -y
 
 echo -e "\n---- Create BEADY system user ----"
 sudo adduser --system --quiet --shell=/bin/bash --home=$OE_HOME --gecos 'BEADY' --group $OE_USER
