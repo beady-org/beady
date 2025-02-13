@@ -21,6 +21,17 @@ ADMIN_EMAIL="info@beady.org"
 # Update System
 echo -e "\n---- Updating System ----"
 sudo apt update && sudo apt upgrade -y
+
+# Install Python 3 Dependencies
+echo -e "\n--- Installing Python 3 + pip3 + Beady Requirements--"
+sudo apt install -y python3
+sudo apt install -y python3-pip python3-venv python3-wheel libfreetype6-dev python3-dev build-essential \
+    libxslt-dev python3-setuptools libzip-dev libldap2-dev libsasl2-dev libpq-dev \
+    nodejs npm libpng-dev libjpeg-dev git wget curl
+
+echo -e "\n---- Install python packages/requirements ----"
+sudo -H pip install -r https://raw.githubusercontent.com/beady-org/beady/refs/heads/main/requirements.txt
+
 # Install PostgreSQL
 echo -e "\n---- Installing PostgreSQL ----"
 if [ "$INSTALL_POSTGRESQL_SIXTEEN" = "True" ]; then
@@ -34,15 +45,6 @@ echo -e "\n---- Installing Wkhtmltopdf ----"
 if [ "$INSTALL_WKHTMLTOPDF" = "True" ]; then
     sudo apt install -y wkhtmltopdf
 fi
-
-# Install Dependencies
-echo -e "\n--- Installing Python 3 + pip3 --"
-sudo apt install -y python3 python3-pip python3-venv python3-wheel python3 libfreetype6-dev python3-dev build-essential \
-    libxslt-dev python3-setuptools libzip-dev libldap2-dev libsasl2-dev libpq-dev \
-    nodejs npm libpng-dev libjpeg-dev git wget curl
-
-echo -e "\n---- Install python packages/requirements ----"
-sudo -H pip install -r https://raw.githubusercontent.com/beady-org/beady/refs/heads/main/requirements.txt
 
 echo -e "\n---- Installing nodeJS NPM and rtlcss for LTR support ----"
 sudo apt-get install nodejs npm -y
